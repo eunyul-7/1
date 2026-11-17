@@ -1,0 +1,1611 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>구미라면축제 안내</title>
+<meta name="description" content="경상북도 구미시에서 열리는 구미라면축제를 쉽게 소개하는 안내 사이트입니다.">
+<script>document.documentElement.classList.add('js');</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #fff8ef;
+    --surface: #ffffff;
+    --surface-2: #fff1dc;
+    --text: #2b1d14;
+    --muted: #6e5a4b;
+    --accent: #e0321b;      /* 국물 빨강 */
+    --accent-2: #f2a516;    /* 면 노랑 */
+    --accent-soft: #ffe2d6;
+    --border: #f0dcc4;
+    --shadow: 0 6px 20px rgba(120, 60, 20, .08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #1b1410;
+      --surface: #261c16;
+      --surface-2: #30231b;
+      --text: #f8ece2;
+      --muted: #c4ad9b;
+      --accent: #ff6a4d;
+      --accent-2: #ffc24a;
+      --accent-soft: #3d2219;
+      --border: #3e2e24;
+      --shadow: 0 6px 20px rgba(0, 0, 0, .35);
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #1b1410;
+    --surface: #261c16;
+    --surface-2: #30231b;
+    --text: #f8ece2;
+    --muted: #c4ad9b;
+    --accent: #ff6a4d;
+    --accent-2: #ffc24a;
+    --accent-soft: #3d2219;
+    --border: #3e2e24;
+    --shadow: 0 6px 20px rgba(0, 0, 0, .35);
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "Noto Sans KR", system-ui, sans-serif;
+    line-height: 1.7;
+    word-break: keep-all;
+  }
+  a { color: var(--accent); }
+  /* 휴대폰 터치가 바로 반응하도록 */
+  a, label, button, summary, select, input { touch-action: manipulation; cursor: pointer; }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+  h1, h2, h3 { line-height: 1.3; }
+  h2 {
+    font-family: "Black Han Sans", "Noto Sans KR", sans-serif;
+    font-weight: 400;
+    font-size: clamp(1.7rem, 4vw, 2.3rem);
+    margin: 0 0 .4em;
+  }
+  .lead { color: var(--muted); margin: 0 0 28px; font-size: 1.05rem; }
+  section { padding: 64px 0; scroll-margin-top: 56px; }
+  #top { scroll-margin-top: 56px; }
+  .menu a.active { background: var(--accent); color: #fff; }
+  section:nth-of-type(even) { background: var(--surface-2); }
+
+  /* 상단 메뉴 */
+  header.nav {
+    position: sticky; top: 0; z-index: 10;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+  }
+  header.nav .wrap { display: flex; align-items: center; gap: 12px; height: 56px; }
+  .logo { font-family: "Black Han Sans", sans-serif; font-size: 1.25rem; color: var(--accent); text-decoration: none; white-space: nowrap; }
+  .menu { display: flex; gap: 4px; margin-left: auto; overflow-x: auto; scrollbar-width: none; }
+  .menu::-webkit-scrollbar { display: none; }
+  .menu a {
+    color: var(--text); text-decoration: none; font-size: .92rem;
+    padding: 6px 10px; border-radius: 999px; white-space: nowrap;
+  }
+  .menu a:hover { background: var(--accent-soft); }
+  .theme-btn {
+    border: 1px solid var(--border); background: var(--surface); color: var(--text);
+    border-radius: 999px; width: 36px; height: 36px; cursor: pointer; flex-shrink: 0;
+  }
+
+  /* 첫 화면 */
+  .hero { padding: 72px 0 56px; position: relative; overflow: hidden; }
+  .hero .wrap { display: grid; grid-template-columns: 1.2fr 1fr; gap: 32px; align-items: center; }
+  .badge {
+    display: inline-block; background: var(--accent); color: #fff;
+    padding: 4px 12px; border-radius: 999px; font-size: .85rem; font-weight: 700;
+  }
+  .hero h1 {
+    font-family: "Black Han Sans", sans-serif; font-weight: 400;
+    font-size: clamp(2.4rem, 7vw, 4rem); margin: 14px 0 10px;
+  }
+  .hero h1 span { color: var(--accent); }
+  .hero p { font-size: 1.1rem; color: var(--muted); margin: 0 0 24px; }
+  .btns { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
+    display: inline-block; padding: 12px 22px; border-radius: 12px; font-weight: 700;
+    text-decoration: none; background: var(--accent); color: #fff;
+  }
+  .btn.ghost { background: var(--surface); color: var(--text); border: 1px solid var(--border); }
+  .bowl { width: 100%; max-width: 360px; justify-self: center; }
+  .steam path { animation: steam 3s ease-in-out infinite; opacity: .6; }
+  .steam path:nth-child(2) { animation-delay: .6s; }
+  .steam path:nth-child(3) { animation-delay: 1.2s; }
+  @keyframes steam {
+    0% { transform: translateY(8px); opacity: 0; }
+    50% { opacity: .7; }
+    100% { transform: translateY(-14px); opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { .steam path { animation: none; } }
+
+  .notice {
+    margin-top: 28px; background: var(--surface); border: 2px dashed var(--accent-2);
+    border-radius: 14px; padding: 14px 18px; font-size: .95rem;
+  }
+
+  /* 카드 */
+  .grid { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); }
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 18px;
+    padding: 22px; box-shadow: var(--shadow);
+  }
+  .card .emoji { font-size: 2rem; line-height: 1; }
+  .card h3 { margin: 10px 0 6px; font-size: 1.15rem; }
+  .card p { margin: 0; color: var(--muted); font-size: .97rem; }
+  .tag {
+    display: inline-block; font-size: .78rem; font-weight: 700; color: var(--accent);
+    background: var(--accent-soft); padding: 2px 8px; border-radius: 6px; margin-top: 10px;
+  }
+
+  /* 소개 */
+  .about { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  .big-fact {
+    background: var(--accent); color: #fff; border-radius: 20px; padding: 28px;
+  }
+  .big-fact strong { font-family: "Black Han Sans", sans-serif; font-weight: 400; font-size: 3.4rem; display: block; line-height: 1.1; }
+
+  /* 정보 표 */
+  .info-table { width: 100%; border-collapse: collapse; background: var(--surface); border-radius: 16px; overflow: hidden; box-shadow: var(--shadow); }
+  .info-table th, .info-table td { padding: 14px 16px; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; }
+  .info-table th { width: 110px; background: var(--accent-soft); white-space: nowrap; }
+  .info-table tr:last-child th, .info-table tr:last-child td { border-bottom: 0; }
+
+  /* 방문객 막대 */
+  .bars { display: flex; flex-direction: column; gap: 12px; }
+  .bar-row { display: grid; grid-template-columns: 56px 1fr 72px; align-items: center; gap: 10px; }
+  .bar-track { background: var(--surface); border: 1px solid var(--border); border-radius: 999px; height: 22px; overflow: hidden; }
+  .bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent-2), var(--accent)); border-radius: 999px; width: var(--w); transition: width 1.2s cubic-bezier(.22,1,.36,1); }
+  .js .bar-fill:not(.on) { width: 0; }
+  .bar-row .num { font-weight: 700; text-align: right; }
+  .small { font-size: .85rem; color: var(--muted); }
+
+  /* 하루 코스 */
+  .timeline { list-style: none; padding: 0; margin: 0; position: relative; }
+  .timeline::before { content: ""; position: absolute; left: 18px; top: 6px; bottom: 6px; width: 3px; background: var(--border); border-radius: 3px; }
+  .timeline li { position: relative; padding: 0 0 22px 52px; }
+  .timeline li::before {
+    content: attr(data-step); position: absolute; left: 4px; top: 0; width: 32px; height: 32px;
+    border-radius: 50%; background: var(--accent); color: #fff; font-weight: 700; display: grid; place-items: center; font-size: .9rem;
+  }
+  .timeline b { display: block; }
+
+  /* 체크리스트 */
+  .checklist { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  .checklist label {
+    display: flex; gap: 12px; align-items: flex-start; background: var(--surface);
+    border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px; cursor: pointer;
+  }
+  .checklist input { width: 20px; height: 20px; accent-color: var(--accent); margin-top: 3px; flex-shrink: 0; }
+  .checklist input:checked + span { text-decoration: line-through; color: var(--muted); }
+  .progress { margin: 0 0 14px; font-weight: 700; }
+
+  /* 질문 */
+  details {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 14px;
+    padding: 0 18px; margin-bottom: 10px;
+  }
+  summary { cursor: pointer; padding: 16px 0; font-weight: 700; list-style: none; display: flex; gap: 10px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::before { content: "Q"; color: var(--accent); font-family: "Black Han Sans", sans-serif; }
+  details[open] summary { border-bottom: 1px solid var(--border); }
+  details p { margin: 12px 0 16px; color: var(--muted); }
+
+  .faq-group { margin: 28px 0 10px; font-size: 1.1rem; }
+  .faq-group:first-of-type { margin-top: 0; }
+  .sub-title { margin: 36px 0 14px; font-size: 1.25rem; }
+
+  /* 공식 SNS */
+  .sns-grid { display: grid; gap: 14px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .sns {
+    display: flex; gap: 14px; align-items: center; text-decoration: none; color: var(--text);
+    background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 16px 18px;
+    box-shadow: var(--shadow); transition: transform .15s ease, border-color .15s ease;
+  }
+  .sns:hover { transform: translateY(-3px); border-color: var(--accent); }
+  .sns .ic { width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; font-size: 1.4rem; flex-shrink: 0; color: #fff; }
+  .sns small { display: block; color: var(--muted); font-size: .85rem; }
+  .ic.insta { background: linear-gradient(45deg, #f9a825, #e1306c, #833ab4); }
+  .ic.yt { background: #e62117; }
+  .ic.web { background: var(--accent-2); }
+  .ic.blog { background: #2db400; }
+  .ic.fb { background: #1877f2; }
+  .sns-head { margin: 0 0 12px; font-size: 1.1rem; }
+  .sns-head + .sns-grid { margin-bottom: 28px; }
+
+  /* 연도별 인기 라면 */
+  .champion {
+    display: flex; gap: 16px; align-items: flex-start;
+    background: linear-gradient(135deg, var(--accent), #b8240f); color: #fff;
+    border-radius: 20px; padding: 22px; margin-bottom: 24px; box-shadow: var(--shadow);
+  }
+  .champion .crown { font-size: 2.6rem; line-height: 1; }
+  .champion b { font-size: 1.15rem; }
+  .champion p { margin: 6px 0 0; opacity: .95; }
+  .years { display: flex; gap: 8px; margin-bottom: 18px; overflow-x: auto; scrollbar-width: none; }
+  .year-btn {
+    font: inherit; font-family: "Black Han Sans", sans-serif; font-size: 1.15rem; cursor: pointer;
+    padding: 8px 18px; border-radius: 12px; border: 2px solid var(--border);
+    background: var(--surface); color: var(--text); flex-shrink: 0;
+  }
+  .year-btn { display: inline-block; user-select: none; -webkit-tap-highlight-color: transparent; }
+
+  /* 자바스크립트 없이 동작하는 선택 버튼 (라디오 + 라벨) */
+  .sw-in { position: absolute; opacity: 0; width: 1px; height: 1px; pointer-events: none; }
+  .year-panel, .tab-panel, .route { display: none; }
+  #yr-2022:checked ~ .p-2022, #yr-2023:checked ~ .p-2023, #yr-2024:checked ~ .p-2024,
+  #yr-2025:checked ~ .p-2025, #yr-2026:checked ~ .p-2026,
+  #nr-walk:checked ~ .p-walk, #nr-bus:checked ~ .p-bus, #nr-eat:checked ~ .p-eat,
+  #fr-seoul:checked ~ .p-seoul, #fr-daegu:checked ~ .p-daegu, #fr-busan:checked ~ .p-busan,
+  #fr-daejeon:checked ~ .p-daejeon, #fr-gwangju:checked ~ .p-gwangju, #fr-local:checked ~ .p-local { display: block; }
+  #yr-2022:checked ~ .years [for="yr-2022"], #yr-2023:checked ~ .years [for="yr-2023"],
+  #yr-2024:checked ~ .years [for="yr-2024"], #yr-2025:checked ~ .years [for="yr-2025"],
+  #yr-2026:checked ~ .years [for="yr-2026"] { background: var(--accent-2); border-color: var(--accent-2); color: #2b1d14; }
+  #nr-walk:checked ~ .tabs [for="nr-walk"], #nr-bus:checked ~ .tabs [for="nr-bus"],
+  #nr-eat:checked ~ .tabs [for="nr-eat"],
+  #fr-seoul:checked ~ .from-pills [for="fr-seoul"], #fr-daegu:checked ~ .from-pills [for="fr-daegu"],
+  #fr-busan:checked ~ .from-pills [for="fr-busan"], #fr-daejeon:checked ~ .from-pills [for="fr-daejeon"],
+  #fr-gwangju:checked ~ .from-pills [for="fr-gwangju"], #fr-local:checked ~ .from-pills [for="fr-local"] {
+    background: var(--accent); color: #fff; border-color: var(--accent);
+  }
+  .sw-in:focus-visible + .sw-in, .sw-in:focus-visible { outline: none; }
+  .years label:focus-within, .tabs label:focus-within { outline: 2px solid var(--accent); }
+  .year-title { font-weight: 700; font-size: 1.2rem; margin: 0 0 14px; }
+  .year-title span { background: var(--accent); color: #fff; border-radius: 8px; padding: 2px 10px; margin-right: 8px; font-size: .95rem; }
+  .year-fact { margin: 16px 0 0; background: var(--surface); border-radius: 12px; padding: 12px 16px; border: 1px dashed var(--accent-2); }
+
+  /* 주변 여행 탭 */
+  .tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 18px; }
+  .tab {
+    font: inherit; font-weight: 700; font-size: .95rem; cursor: pointer;
+    padding: 10px 16px; border-radius: 999px; border: 1px solid var(--border);
+    background: var(--surface); color: var(--text);
+  }
+  .tab { display: inline-block; user-select: none; -webkit-tap-highlight-color: transparent; }
+  .plan2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .day { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; padding: 18px 20px; }
+  .day b { color: var(--accent); }
+  .day ol { margin: 8px 0 0; padding-left: 20px; }
+
+  /* 길찾기 */
+  .finder { background: var(--surface); border: 2px solid var(--accent-2); border-radius: 18px; padding: 20px; box-shadow: var(--shadow); }
+  .finder-q { margin: 0 0 10px; }
+  .from-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+  .from-pills label {
+    cursor: pointer; user-select: none; -webkit-tap-highlight-color: transparent;
+    padding: 9px 16px; border-radius: 999px; border: 1px solid var(--border);
+    background: var(--bg); color: var(--text); font-weight: 700; font-size: .95rem;
+  }
+  .route ol { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+  .route li { background: var(--accent-soft); border-radius: 10px; padding: 8px 12px; font-weight: 500; }
+  .route li.arrow { background: none; padding: 0; color: var(--accent); font-weight: 700; }
+  .route .alt { margin: 12px 0 0; color: var(--muted); font-size: .95rem; }
+
+  @media (max-width: 760px) { .plan2 { grid-template-columns: 1fr; } }
+
+  /* 구미 소개 */
+  .pride { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  .pride-item {
+    position: relative; background: var(--surface); border-radius: 20px; padding: 24px 22px;
+    border-top: 6px solid var(--accent); box-shadow: var(--shadow);
+  }
+  .pride-item:nth-child(even) { border-top-color: var(--accent-2); }
+  .pride-num { position: absolute; top: 14px; right: 18px; font-family: "Black Han Sans", sans-serif; font-size: 1.6rem; color: var(--border); }
+  .pride-item .emoji { font-size: 2.2rem; line-height: 1; }
+  .pride-item h3 { margin: 12px 0 6px; font-size: 1.2rem; }
+  .pride-item p { margin: 0; color: var(--muted); font-size: .97rem; }
+  .slogan { margin-top: 28px; text-align: center; }
+  .slogan p { margin: 0; font-size: clamp(1.15rem, 3.5vw, 1.5rem); line-height: 1.6; }
+  .slogan b { color: var(--accent); }
+
+  /* 마지막 초대 */
+  .invite { background: linear-gradient(135deg, var(--accent), #b8240f); color: #fff; text-align: center; padding: 64px 0; }
+  .invite-small { margin: 0 0 6px; opacity: .9; font-weight: 700; }
+  .invite-big { margin: 0 0 24px; font-family: "Black Han Sans", sans-serif; font-size: clamp(1.8rem, 6vw, 2.8rem); line-height: 1.3; }
+  .invite-big span { color: #ffd772; }
+  .invite .btns { justify-content: center; }
+  .btn.light { background: #fff; color: #b8240f; }
+
+  /* ===== 셔틀버스 · 주차장 ===== */
+  .courses { display: grid; gap: 10px; margin-bottom: 18px; }
+  details.course { padding: 0 16px; }
+  details.course summary { align-items: center; gap: 14px; }
+  details.course summary::before { content: none; }
+  details.course summary small { display: block; font-weight: 400; color: var(--muted); font-size: .88rem; }
+  details.course ul { margin: 12px 0 16px; padding-left: 4px; list-style: none; display: grid; gap: 6px; color: var(--muted); }
+  .cbadge {
+    flex-shrink: 0; width: 42px; height: 42px; border-radius: 12px; display: grid; place-items: center;
+    background: var(--accent); color: #fff; font-family: "Black Han Sans", sans-serif; font-size: 1.4rem;
+  }
+  .cbadge.b { background: var(--accent-2); color: #2b1d14; }
+  .cbadge.c { background: var(--muted); }
+  .table-wrap { overflow-x: auto; margin-bottom: 8px; }
+  .time-table th, .time-table td { text-align: center; width: auto; white-space: nowrap; }
+  .time-table thead th { background: var(--accent); color: #fff; }
+  .time-table tr.warn td { background: var(--accent-soft); }
+  .time-table tr.warn b { color: var(--accent); }
+  .park-panel { display: none; }
+  #pk-shuttle:checked ~ .p-shuttle, #pk-walk:checked ~ .p-walk, #pk-station:checked ~ .p-station { display: block; }
+  #pk-shuttle:checked ~ .tabs [for="pk-shuttle"], #pk-walk:checked ~ .tabs [for="pk-walk"],
+  #pk-station:checked ~ .tabs [for="pk-station"] { background: var(--accent); color: #fff; border-color: var(--accent); }
+  .park-desc { margin: 0 0 12px; color: var(--muted); }
+  .lots { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+  .lots li {
+    display: grid; grid-template-columns: 1fr auto auto; gap: 4px 12px; align-items: center;
+    background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 12px 14px;
+  }
+  .lots .cnt { font-weight: 700; color: var(--accent); white-space: nowrap; }
+  .lots .addr { grid-column: 1 / 2; color: var(--muted); font-size: .88rem; }
+  .lots a { grid-row: 1 / 3; grid-column: 3; font-size: .85rem; font-weight: 700; text-decoration: none; border: 1px solid var(--border); border-radius: 999px; padding: 6px 12px; white-space: nowrap; }
+  .paid { font-style: normal; font-size: .72rem; font-weight: 700; background: #2f9e44; color: #fff; border-radius: 6px; padding: 1px 6px; vertical-align: 2px; }
+  .source { font-size: .8rem; color: var(--muted); margin: 14px 0 0; padding-left: 10px; border-left: 3px solid var(--border); }
+
+  /* ===== 첫 화면 숫자 (Count-up) ===== */
+  .stats { list-style: none; padding: 0; margin: 28px 0 0; display: flex; flex-wrap: wrap; gap: 12px; }
+  .stats li { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 10px 16px; min-width: 120px; }
+  .stats b { display: block; font-family: "Black Han Sans", sans-serif; font-weight: 400; font-size: 1.6rem; color: var(--accent); line-height: 1.2; }
+  .stats small { color: var(--muted); font-size: .8rem; }
+
+  /* ===== 키워드 띠 (Marquee) ===== */
+  .marquee { overflow: hidden; background: var(--accent-2); color: #2b1d14; padding: 12px 0; font-weight: 700; }
+  .marquee-track { display: flex; gap: 36px; width: max-content; animation: marquee 30s linear infinite; }
+  .marquee:hover .marquee-track { animation-play-state: paused; }
+  .marquee span { white-space: nowrap; }
+  @keyframes marquee { to { transform: translateX(calc(-50% - 18px)); } }
+
+  /* ===== 막대그래프 짚어 보기 ===== */
+  .bar-row { cursor: pointer; border-radius: 10px; padding: 4px 6px; transition: background .2s ease; outline: none; }
+  .bar-row:hover, .bar-row:focus { background: var(--accent-soft); }
+  .bar-row:hover .bar-fill, .bar-row:focus .bar-fill { filter: saturate(1.4) brightness(1.05); }
+  .bar-note { grid-column: 1 / -1; display: none; font-size: .9rem; font-weight: 500; padding: 2px 0 2px 66px; }
+  .bar-row:hover .bar-note, .bar-row:focus .bar-note { display: block; }
+
+  /* ===== 구미 소개 Bento Grid ===== */
+  @media (min-width: 900px) {
+    .pride { grid-template-columns: repeat(3, 1fr); }
+    .pride-item:nth-child(1), .pride-item:nth-child(4) { grid-column: span 2; }
+    .pride-item:nth-child(1) { background: linear-gradient(135deg, var(--surface), var(--accent-soft)); }
+  }
+
+  /* ===== 자주 묻는 질문 Accordion 화살표 ===== */
+  summary::after { content: "▾"; margin-left: auto; color: var(--muted); transition: transform .3s ease; }
+  details[open] > summary::after { transform: rotate(180deg); }
+  details[open] > *:not(summary) { animation: fadeIn .3s ease-out; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
+
+  /* ===== Hover · UI States ===== */
+  .card, .pride-item, .day { transition: transform .2s ease, box-shadow .2s ease; }
+  @media (hover: hover) {
+    .card:hover, .pride-item:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(120, 60, 20, .14); }
+  }
+  .btn, .tab, .year-btn, .from-pills label, .menu a { transition: transform .15s ease, background-color .2s ease, color .2s ease; }
+  .btn:active, .tab:active, .year-btn:active, .from-pills label:active, .menu a:active { transform: scale(.96); }
+  a:focus-visible, button:focus-visible, summary:focus-visible, .bar-row:focus-visible,
+  .sw-in:focus-visible + .sw-in { outline: 3px solid var(--accent-2); outline-offset: 2px; }
+  #yr-2022:focus-visible ~ .years [for="yr-2022"], #yr-2023:focus-visible ~ .years [for="yr-2023"],
+  #yr-2024:focus-visible ~ .years [for="yr-2024"], #yr-2025:focus-visible ~ .years [for="yr-2025"],
+  #yr-2026:focus-visible ~ .years [for="yr-2026"] { outline: 3px solid var(--accent); outline-offset: 2px; }
+  body { transition: background-color .3s ease, color .3s ease; }
+
+  /* ===== Sticky Header 그림자 ===== */
+  header.nav { transition: box-shadow .2s ease; }
+  header.nav.scrolled { box-shadow: 0 4px 16px rgba(0, 0, 0, .08); }
+
+  /* ===== Scroll Reveal + Stagger (자바스크립트가 있을 때만 숨김) ===== */
+  .js .reveal { opacity: 0; transform: translateY(20px); transition: opacity .5s ease-out, transform .5s ease-out; transition-delay: var(--d, 0s); }
+  .js .reveal.in { opacity: 1; transform: none; }
+
+  /* ===== Toast ===== */
+  .toast {
+    position: fixed; left: 50%; bottom: 24px; transform: translate(-50%, 20px); opacity: 0; pointer-events: none;
+    background: #2b1d14; color: #fff; padding: 12px 20px; border-radius: 999px; font-weight: 700; z-index: 50;
+    transition: opacity .25s ease, transform .25s ease; max-width: calc(100% - 32px); text-align: center;
+  }
+  .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+  /* ===== Confetti ===== */
+  .confetti { position: fixed; top: -12px; width: 10px; height: 14px; border-radius: 2px; z-index: 60; pointer-events: none; animation: fall 1.8s ease-in forwards; }
+  @keyframes fall { to { transform: translate(var(--x), 105vh) rotate(var(--r)); opacity: .6; } }
+
+  /* ===== 15초 모션그래픽 ===== */
+  .movie-sec { padding-top: 40px; }
+  .screen {
+    position: relative; aspect-ratio: 16 / 9; max-height: 480px; width: 100%; overflow: hidden; border-radius: 24px;
+    background: #2b1d14; color: #fff; box-shadow: var(--shadow);
+    animation: screenBg 15s linear infinite;
+  }
+  @keyframes screenBg {
+    0%, 30% { background: #3a1d12; }
+    33.4%, 63% { background: #b8240f; }
+    66.7%, 97% { background: #c46a12; }
+    100% { background: #3a1d12; }
+  }
+  .scene {
+    position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center; padding: 20px; opacity: 0; animation: scene 15s infinite;
+  }
+  .s2, .s2 * { animation-delay: 5s !important; }
+  .s3, .s3 * { animation-delay: 10s !important; }
+  @keyframes scene {
+    0% { opacity: 0; transform: translateY(24px); }
+    4% { opacity: 1; transform: none; }
+    30% { opacity: 1; transform: none; }
+    33.3%, 100% { opacity: 0; transform: translateY(-16px); }
+  }
+  .scene-art { font-size: clamp(2.4rem, 9vw, 4.6rem); display: flex; align-items: center; gap: 14px; margin-bottom: 10px; }
+  .pop { display: inline-block; animation: pop 15s infinite; }
+  @keyframes pop { 0% { transform: scale(0); } 3% { transform: scale(1.25); } 5%, 100% { transform: scale(1); } }
+  .arrow-move { font-size: .6em; animation: slideR 15s infinite; }
+  @keyframes slideR { 0%, 4% { transform: translateX(-20px); opacity: 0; } 9%, 100% { transform: none; opacity: 1; } }
+  .road { display: flex; gap: 4px; font-size: .7em; }
+  .road i { font-style: normal; animation: pop 15s infinite; }
+  .road i:nth-child(2) { animation-name: pop2; } .road i:nth-child(3) { animation-name: pop3; }
+  .road i:nth-child(4) { animation-name: pop4; } .road i:nth-child(5) { animation-name: pop5; }
+  @keyframes pop2 { 0%, 2% { transform: scale(0); } 5%, 100% { transform: scale(1); } }
+  @keyframes pop3 { 0%, 4% { transform: scale(0); } 7%, 100% { transform: scale(1); } }
+  @keyframes pop4 { 0%, 6% { transform: scale(0); } 9%, 100% { transform: scale(1); } }
+  @keyframes pop5 { 0%, 8% { transform: scale(0); } 11%, 100% { transform: scale(1); } }
+  .late { animation-name: pop3; } .later { animation-name: pop5; }
+  .scene-kicker { margin: 0 0 4px; font-size: .85rem; font-weight: 700; letter-spacing: .05em; opacity: .8; }
+  .scene-text { margin: 0; font-size: clamp(1.15rem, 4.2vw, 2rem); line-height: 1.45; }
+  .scene-text b { font-family: "Black Han Sans", sans-serif; font-weight: 400; color: #ffd772; font-size: 1.15em; }
+  .mv-progress { position: absolute; left: 0; right: 0; bottom: 0; height: 6px; background: rgba(255,255,255,.2); }
+  .mv-progress span { display: block; height: 100%; width: 100%; background: #ffd772; transform-origin: left; animation: progress 15s linear infinite; }
+  @keyframes progress { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+  .mv-ctrl { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+  .mv-btn .when-pause { display: none; }
+  #mv-pause:checked ~ .mv-ctrl .when-play { display: none; }
+  #mv-pause:checked ~ .mv-ctrl .when-pause { display: inline; }
+  #mv-pause:checked ~ .screen, #mv-pause:checked ~ .screen * { animation-play-state: paused !important; }
+  .screen.restart, .screen.restart * { animation: none !important; }
+
+  /* ===== 레버로 시간대 바꾸기 ===== */
+  .lever-box { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: stretch; }
+  .lever-stage { background: var(--surface); border-radius: 22px; padding: 26px 24px; box-shadow: var(--shadow); border: 1px solid var(--border); min-height: 260px; }
+  .lv-panel { display: none; }
+  #lv-1:checked ~ .lever-stage .p-lv1, #lv-2:checked ~ .lever-stage .p-lv2, #lv-3:checked ~ .lever-stage .p-lv3,
+  #lv-4:checked ~ .lever-stage .p-lv4, #lv-5:checked ~ .lever-stage .p-lv5 { display: block; animation: lvIn .35s ease-out; }
+  @keyframes lvIn { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+  .lv-emoji { font-size: 3.4rem; line-height: 1; animation: inherit; }
+  .lv-time { margin: 12px 0 2px; color: var(--accent); font-weight: 700; font-size: .9rem; }
+  .lv-panel h3 { margin: 0 0 8px; font-size: 1.4rem; }
+  .lv-panel p:last-child { margin: 0; color: var(--muted); }
+  .lever { position: relative; display: grid; grid-template-rows: repeat(5, 1fr); padding-left: 34px; min-width: 116px; }
+  .lever-track { position: absolute; left: 10px; top: 8px; bottom: 8px; width: 12px; border-radius: 999px; background: var(--border); }
+  .knob {
+    position: absolute; left: 50%; top: 0; width: 30px; height: 30px; margin-left: -15px; border-radius: 50%;
+    background: var(--accent); border: 4px solid var(--surface); box-shadow: 0 3px 10px rgba(0,0,0,.25);
+    transition: top .45s cubic-bezier(.34, 1.56, .64, 1);
+  }
+  #lv-1:checked ~ .lever .knob { top: calc(10% - 15px); }
+  #lv-2:checked ~ .lever .knob { top: calc(30% - 15px); }
+  #lv-3:checked ~ .lever .knob { top: calc(50% - 15px); }
+  #lv-4:checked ~ .lever .knob { top: calc(70% - 15px); }
+  #lv-5:checked ~ .lever .knob { top: calc(90% - 15px); }
+  .lever label {
+    display: flex; align-items: center; cursor: pointer; font-weight: 700; color: var(--muted); font-size: .95rem;
+    padding: 6px 10px; border-radius: 10px; -webkit-tap-highlight-color: transparent; user-select: none;
+  }
+  .lever label:hover { background: var(--accent-soft); }
+  #lv-1:checked ~ .lever [for="lv-1"], #lv-2:checked ~ .lever [for="lv-2"], #lv-3:checked ~ .lever [for="lv-3"],
+  #lv-4:checked ~ .lever [for="lv-4"], #lv-5:checked ~ .lever [for="lv-5"] { color: var(--accent); }
+  @media (max-width: 480px) {
+    .lever { min-width: 96px; padding-left: 30px; }
+    .lever label { font-size: .85rem; padding: 6px; }
+    .lever-stage { padding: 20px 18px; }
+  }
+
+  /* ===== 아래에서 올라오는 패널 (Bottom Sheet) ===== */
+  .more {
+    display: inline-block; margin-top: 12px; margin-left: 6px; font-size: .85rem; font-weight: 700; color: var(--accent);
+    border: 1px solid var(--accent); border-radius: 999px; padding: 4px 12px; -webkit-tap-highlight-color: transparent;
+  }
+  .more:hover { background: var(--accent); color: #fff; }
+  .sheet-wrap { display: none; position: fixed; inset: 0; z-index: 40; }
+  #sh-1:checked ~ .w-1, #sh-2:checked ~ .w-2, #sh-3:checked ~ .w-3, #sh-4:checked ~ .w-4 { display: block; }
+  .sheet-dim { position: absolute; inset: 0; background: rgba(20, 10, 5, .55); animation: dimIn .25s ease-out; cursor: pointer; }
+  @keyframes dimIn { from { opacity: 0; } to { opacity: 1; } }
+  .sheet {
+    position: absolute; left: 0; right: 0; bottom: 0; margin: 0 auto; max-width: 640px; max-height: 80vh; overflow-y: auto;
+    background: var(--surface); color: var(--text); border-radius: 24px 24px 0 0; padding: 10px 22px 28px;
+    box-shadow: 0 -10px 40px rgba(0,0,0,.25); animation: sheetUp .4s cubic-bezier(.22, 1, .36, 1);
+  }
+  @keyframes sheetUp { from { transform: translateY(100%); } to { transform: none; } }
+  .sheet-handle { display: block; width: 44px; height: 5px; border-radius: 999px; background: var(--border); margin: 0 auto 14px; }
+  .sheet-head { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .sheet-head .emoji { font-size: 2rem; }
+  .sheet-head h3 { margin: 0; font-size: 1.3rem; }
+  .sheet-close { margin-left: auto; cursor: pointer; font-weight: 700; color: var(--muted); padding: 6px 12px; border-radius: 999px; border: 1px solid var(--border); }
+  .sheet-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  .sheet-list li { background: var(--bg); border-radius: 12px; padding: 12px 14px; }
+  .sheet-list b { display: block; color: var(--accent); margin-bottom: 2px; }
+
+  /* ===== Reduced Motion: 움직임 줄이기 설정 존중 ===== */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+    .marquee-track { animation: none; flex-wrap: wrap; width: auto; justify-content: center; }
+    .marquee-track span:nth-child(n+9) { display: none; }
+    .js .reveal { opacity: 1; transform: none; }
+    .screen { aspect-ratio: auto; max-height: none; display: grid; gap: 4px; padding: 16px 0; background: #b8240f; }
+    .scene { position: static; opacity: 1; animation: none; padding: 14px; }
+    .mv-progress, .mv-ctrl { display: none; }
+  }
+
+  footer { padding: 36px 0 48px; font-size: .88rem; color: var(--muted); border-top: 1px solid var(--border); }
+  footer ul { padding-left: 18px; margin: 8px 0; }
+
+  @media (max-width: 760px) {
+    section { padding: 48px 0; }
+    .hero { padding: 40px 0; }
+    .hero .wrap, .about { grid-template-columns: 1fr; }
+    .bowl { max-width: 240px; order: -1; }
+    header.nav .wrap { flex-wrap: wrap; height: auto; padding-top: 8px; padding-bottom: 8px; row-gap: 6px; }
+    .theme-btn { margin-left: auto; }
+    .menu { order: 3; width: 100%; margin-left: 0; }
+    .menu a { background: var(--surface); border: 1px solid var(--border); font-size: .88rem; }
+    section, #top { scroll-margin-top: 100px; }
+    .info-table th { width: 84px; padding: 12px; }
+    .info-table td { padding: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="logo" href="#top">🍜 구미라면축제</a>
+    <nav class="menu" aria-label="주요 메뉴">
+      <a href="#about">축제 소개</a>
+      <a href="#gumi">구미 소개</a>
+      <a href="#info">기본 정보</a>
+      <a href="#food">먹거리</a>
+      <a href="#hits">인기 라면</a>
+      <a href="#fun">즐길거리</a>
+      <a href="#nearby">주변 여행</a>
+      <a href="#way">오시는 길</a>
+      <a href="#parking">셔틀·주차</a>
+      <a href="#tips">꿀팁</a>
+      <a href="#faq">자주 묻는 질문</a>
+      <a href="#sns">공식 SNS</a>
+    </nav>
+    <button class="theme-btn" id="themeBtn" aria-label="화면 밝기 바꾸기">🌙</button>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- 첫 화면 -->
+  <div class="hero">
+    <div class="wrap">
+      <div>
+        <span class="badge">어서 오세요, 라면의 고향 구미입니다 🍜</span>
+        <h1>라면의 도시,<br><span>구미</span>가 끓는다!</h1>
+        <p>우리나라 신라면 4개 중 3개가 태어나는 도시, 구미. 매년 11월이면 구미역 앞 거리가 통째로 <b>세상에서 가장 긴 라면 식당</b>이 돼요. 공장에서 방금 튀긴 라면과 구미만의 특별한 라면, 그리고 금오산 단풍과 낙동강 노을까지. <b>구미가 차린 한 상</b>을 맛보러 오세요!</p>
+        <div class="btns">
+          <a class="btn" href="#info">언제, 어디서?</a>
+          <a class="btn ghost" href="#food">뭘 먹을까?</a>
+        </div>
+        <ul class="stats" aria-label="숫자로 보는 구미라면축제">
+          <li><b><span class="count" data-to="35">35</span>만 명</b><small>2025년 방문객</small></li>
+          <li><b><span class="count" data-to="48">48</span>만 개</b><small>2025년 갓 튀긴 라면</small></li>
+          <li><b><span class="count" data-to="33">33</span>곳</b><small>2026년 라면 가게·트럭</small></li>
+        </ul>
+      </div>
+      <svg class="bowl" viewBox="0 0 300 260" role="img" aria-label="김이 나는 라면 그릇 그림">
+        <g class="steam" fill="none" stroke="var(--muted)" stroke-width="6" stroke-linecap="round">
+          <path d="M110 70 q-14 -20 0 -40 q14 -20 0 -40"/>
+          <path d="M150 70 q-14 -20 0 -40 q14 -20 0 -40"/>
+          <path d="M190 70 q-14 -20 0 -40 q14 -20 0 -40"/>
+        </g>
+        <ellipse cx="150" cy="120" rx="130" ry="28" fill="var(--accent-2)"/>
+        <g fill="none" stroke="#fff3c4" stroke-width="5" stroke-linecap="round" opacity=".9">
+          <path d="M60 118 q15 -12 30 0 t30 0 t30 0 t30 0 t30 0 t30 0"/>
+          <path d="M75 128 q15 -12 30 0 t30 0 t30 0 t30 0 t30 0"/>
+        </g>
+        <circle cx="110" cy="112" r="14" fill="#fff"/><circle cx="110" cy="112" r="7" fill="var(--accent-2)"/>
+        <rect x="170" y="104" width="34" height="14" rx="4" fill="#5aa83c"/>
+        <path d="M20 120 h260 q-10 110 -130 120 q-120 -10 -130 -120z" fill="var(--accent)"/>
+        <path d="M60 165 h180" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".35"/>
+        <rect x="200" y="20" width="8" height="120" rx="4" transform="rotate(22 204 80)" fill="var(--muted)"/>
+        <rect x="216" y="20" width="8" height="120" rx="4" transform="rotate(26 220 80)" fill="var(--muted)"/>
+      </svg>
+    </div>
+    <div class="wrap">
+      <div class="notice" id="notice">
+        📅 <b>가장 최근 축제:</b> 2026년 11월 6일(금) ~ 8일(일), 구미역과 원평동 원도심 일대에서 열렸어요.
+        다음 축제 날짜는 구미시가 발표하면 이곳에 바로 반영할게요. 보통 <b>매년 11월 초</b>에 열려요.
+      </div>
+    </div>
+  </div>
+
+  <!-- 15초 모션그래픽 (PPT 사례 6) -->
+  <section id="movie" class="movie-sec">
+    <div class="wrap">
+      <h2>15초로 보는 구미라면축제</h2>
+      <p class="lead">세 장면으로 축제를 미리 만나 보세요. 아래 버튼으로 멈추거나 다시 볼 수 있어요.</p>
+      <div class="movie">
+        <input class="sw-in" type="checkbox" id="mv-pause">
+        <div class="screen" id="screen">
+          <div class="scene s1">
+            <div class="scene-art"><span class="pop">🏭</span><span class="arrow-move">➜</span><span class="pop late">🍜</span></div>
+            <p class="scene-kicker">장면 1 · 아침</p>
+            <p class="scene-text">구미 공장에서<br><b>오늘 아침 튀긴 라면</b>이</p>
+          </div>
+          <div class="scene s2">
+            <div class="scene-art"><span class="pop">🚆</span><span class="road"><i>🍜</i><i>🍜</i><i>🍜</i><i>🍜</i><i>🍜</i></span></div>
+            <p class="scene-kicker">장면 2 · 낮</p>
+            <p class="scene-text">구미역 앞 475m가<br><b>통째로 라면 식당</b>으로</p>
+          </div>
+          <div class="scene s3">
+            <div class="scene-art"><span class="pop">⛰️</span><span class="pop late">🌅</span><span class="pop later">🧡</span></div>
+            <p class="scene-kicker">장면 3 · 저녁</p>
+            <p class="scene-text">라면 먹고 금오산·낙동강까지<br><b>올가을, 구미에서 만나요</b></p>
+          </div>
+          <div class="mv-progress"><span></span></div>
+        </div>
+        <div class="mv-ctrl">
+          <label for="mv-pause" class="btn mv-btn"><span class="when-play">⏸ 정지</span><span class="when-pause">▶ 재생</span></label>
+          <button class="btn ghost" id="mvReplay" type="button" hidden>↺ 처음부터</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 키워드 띠 (Marquee) -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span>🍜 갓 튀긴 라면</span><span>🔥 이색 라면 33곳</span><span>⛰️ 금오산 단풍</span><span>🌅 낙동강 노을</span><span>🚆 구미역 = 축제장</span><span>🐢 라면 거북이</span><span>🌾 구미 밀 라면</span><span>🎤 공연과 면치기</span>
+      <span>🍜 갓 튀긴 라면</span><span>🔥 이색 라면 33곳</span><span>⛰️ 금오산 단풍</span><span>🌅 낙동강 노을</span><span>🚆 구미역 = 축제장</span><span>🐢 라면 거북이</span><span>🌾 구미 밀 라면</span><span>🎤 공연과 면치기</span>
+    </div>
+  </div>
+
+  <!-- 축제 소개 -->
+  <section id="about">
+    <div class="wrap">
+      <h2>라면축제, 왜 하필 구미일까요?</h2>
+      <p class="lead">답은 간단해요. 우리가 먹는 라면이 <b>구미에서 만들어지기</b> 때문이에요.</p>
+      <div class="about">
+        <div class="big-fact">
+          <strong>4개 중 3개</strong>
+          우리나라 사람들이 즐겨 먹는 신라면의 약 75%가 구미에 있는 농심 공장에서 만들어져요. 라면 공장이 있는 도시라서 "라면의 고향"이라고도 불려요.
+        </div>
+        <div>
+          <p><b>구미라면축제</b>는 2022년에 처음 열린 <b>우리나라 최초의 라면 축제</b>예요. 공장에서 막 만든 라면을 사고, 구미의 식당들이 개발한 특별한 라면을 맛보는 먹거리 축제랍니다.</p>
+          <p>처음에는 작은 동네 축제였지만, 해마다 찾는 사람이 크게 늘어 이제는 구미를 대표하는 축제가 되었어요.</p>
+          <h3 style="margin-top:20px">해마다 늘어나는 방문객 수</h3>
+          <div class="bars" id="bars">
+            <div class="bar-row" tabindex="0"><span>2022</span><div class="bar-track"><div class="bar-fill" style="--w:3%"></div></div><span class="num">약 1만 명</span><span class="bar-note">🌱 첫 축제! 작은 동네 잔치로 시작했어요.</span></div>
+            <div class="bar-row" tabindex="0"><span>2023</span><div class="bar-track"><div class="bar-fill" style="--w:29%"></div></div><span class="num">약 10만 명</span><span class="bar-note">🚀 1년 만에 약 10배! 이색 라면이 처음 등장했어요.</span></div>
+            <div class="bar-row" tabindex="0"><span>2024</span><div class="bar-track"><div class="bar-fill" style="--w:49%"></div></div><span class="num">약 17만 명</span><span class="bar-note">🍜 ‘세상에서 가장 긴 라면 식당’이 생긴 해예요.</span></div>
+            <div class="bar-row" tabindex="0"><span>2025</span><div class="bar-track"><div class="bar-fill" style="--w:100%"></div></div><span class="num">약 35만 명</span><span class="bar-note">🔥 전년의 약 2배! 구미 인구만큼 찾아왔어요.</span></div>
+          </div>
+          <p class="small">👆 막대를 누르거나 마우스를 올려 보세요. 그해 이야기가 나와요.</p>
+          <p class="source">단위: 명(3일 합계, 어림값) · 출처: 경북매일·데일리안 등 2025~2026년 언론 보도. 집계 기관마다 숫자가 조금씩 달라요.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 구미 소개 -->
+  <section id="gumi">
+    <div class="wrap">
+      <h2>구미는 이런 도시예요</h2>
+      <p class="lead">라면축제가 구미에서 열리는 데는 다 이유가 있어요. 맛있고, 아름답고, 오기 쉬운 도시 구미를 소개할게요.</p>
+      <div class="pride">
+        <div class="pride-item">
+          <span class="pride-num">01</span>
+          <div class="emoji">🍜</div>
+          <h3>라면의 고향</h3>
+          <p>신라면의 약 75%가 구미 공장에서 만들어져요. 전국 라면 상자에 ‘구미’라는 이름이 숨어 있는 셈이죠.</p>
+        </div>
+        <div class="pride-item">
+          <span class="pride-num">02</span>
+          <div class="emoji">🍗</div>
+          <h3>K-푸드의 도시</h3>
+          <p>라면·치킨·냉동김밥까지, 세계인이 즐기는 한국 음식이 구미에서 만들어져요. 맛집 거리 송정맛길은 2026년 정부의 ‘K-푸드로드’로 뽑혔어요.</p>
+        </div>
+        <div class="pride-item">
+          <span class="pride-num">03</span>
+          <div class="emoji">⛰️</div>
+          <h3>산과 강이 있는 도시</h3>
+          <p>시내 가까이 금오산이 우뚝 서 있고, 낙동강이 도시를 따라 흘러요. 축제가 열리는 11월에는 금오산 단풍이 한창이에요.</p>
+        </div>
+        <div class="pride-item">
+          <span class="pride-num">04</span>
+          <div class="emoji">🚆</div>
+          <h3>오기 쉬운 도시</h3>
+          <p>경부선 기차를 타고 구미역에 내리면 바로 축제장! 대구에서는 대경선 전철로 30분대면 도착해요.</p>
+        </div>
+      </div>
+      <div class="slogan">
+        <p>“라면 한 그릇에 반하고,<br><b>구미에 한 번 더 반하는</b> 하루”</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 기본 정보 -->
+  <section id="info">
+    <div class="wrap">
+      <h2>한눈에 보는 기본 정보</h2>
+      <p class="lead">2026년 축제를 기준으로 정리했어요. 다음 축제 정보는 구미시 공식 안내를 함께 확인해 주세요.</p>
+      <table class="info-table">
+        <tr><th>📅 언제</th><td>2026년 11월 6일(금) ~ 8일(일), 3일 동안<br><span class="small">매년 11월 초에 열려요.</span></td></tr>
+        <tr><th>📍 어디서</th><td>경상북도 구미시 <b>구미역</b> 앞과 <b>원평동 원도심</b>(오래된 시내 중심가) 일대<br><span class="small">구미역 앞 약 475m 거리가 통째로 라면 거리로 변해요.</span></td></tr>
+        <tr><th>💰 입장료</th><td>축제장은 누구나 자유롭게 들어갈 수 있어요. 먹거리와 기념품만 돈을 내고 사면 돼요.</td></tr>
+        <tr><th>👨‍👩‍👧 누가</th><td>가족, 친구, 연인, 외국인 관광객 누구나! 아이들을 위한 프로그램도 있어요.</td></tr>
+        <tr><th>🏢 누가 여나</th><td>구미시가 열고, 라면 회사 농심과 지역 식당·상인들이 함께해요.</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- 먹거리 -->
+  <section id="food">
+    <div class="wrap">
+      <h2>꼭 먹어 봐야 할 것</h2>
+      <p class="lead">배를 든든히 비우고 오세요. 먹을 게 정말 많아요! 카드의 <b>자세히 보기</b>를 누르면 더 많은 이야기가 아래에서 올라와요.</p>
+      <input class="sw-in sheet-toggle" type="checkbox" id="sh-1">
+      <input class="sw-in sheet-toggle" type="checkbox" id="sh-2">
+      <input class="sw-in sheet-toggle" type="checkbox" id="sh-3">
+      <input class="sw-in sheet-toggle" type="checkbox" id="sh-4">
+      <div class="grid">
+        <div class="card">
+          <div class="emoji">🔥</div>
+          <h3>갓 튀긴 라면</h3>
+          <p>근처 농심 공장에서 <b>그날 아침에 만든 라면</b>을 바로 팔아요. 갓 구운 빵처럼 고소한 향이 살아 있어 가장 줄이 긴 인기 코너예요. 여러 종류 라면을 묶음으로 살 수 있어요.</p>
+          <span class="tag">대표 먹거리</span>
+          <label class="more" for="sh-1">자세히 보기 ↑</label>
+        </div>
+        <div class="card">
+          <div class="emoji">🍜</div>
+          <h3>라면 레스토랑 거리</h3>
+          <p>구미역 앞 거리에 늘어선 라면 가게들이 저마다 개발한 <b>특별한 라면</b>을 팔아요. 2026년에는 라면 가게 25곳과 라면 트럭 8대, 모두 33곳이 함께했어요.</p>
+          <span class="tag">세상에서 가장 긴 라면 식당</span>
+          <label class="more" for="sh-2">자세히 보기 ↑</label>
+        </div>
+        <div class="card">
+          <div class="emoji">🦀</div>
+          <h3>이색 라면</h3>
+          <p>한우 불고기 김치라면, 홍게라면, 통오징어 해물라면, 참복 라면, 송이·능이버섯 산중라면처럼 <b>집에서는 못 먹는 라면</b>을 맛볼 수 있어요. 외국 국수 요리도 있어요.</p>
+          <span class="tag">축제에서만</span>
+          <label class="more" for="sh-3">자세히 보기 ↑</label>
+        </div>
+        <div class="card">
+          <div class="emoji">🌾</div>
+          <h3>구미 밀로 만든 라면</h3>
+          <p>2026년에는 구미에서 키운 밀(브랜드 이름 ‘구미밀가리’)로 만든 <b>축제 전용 라면</b> 20만 개가 처음 나왔어요.</p>
+          <span class="tag">2026 새 메뉴</span>
+          <label class="more" for="sh-4">자세히 보기 ↑</label>
+        </div>
+      </div>
+
+      <div class="sheet-wrap w-1">
+        <label class="sheet-dim" for="sh-1" aria-label="닫기"></label>
+        <div class="sheet" role="dialog" aria-label="갓 튀긴 라면 자세히">
+          <span class="sheet-handle"></span>
+          <div class="sheet-head"><span class="emoji">🔥</span><h3>갓 튀긴 라면</h3><label class="sheet-close" for="sh-1">닫기 ✕</label></div>
+          <ul class="sheet-list">
+            <li><b>무엇이 들어 있나요?</b> 신라면·안성탕면·짜파게티·너구리에, 2026년엔 축제 한정 ‘구미라면축제면’까지 담긴 라면 가방이에요.</li>
+            <li><b>몇 개 살 수 있나요?</b> 구미라면축제면이 든 가방은 한 사람당 1개, 다른 가방은 2개까지였어요. (2026년 11월 8일 공식 안내)</li>
+            <li><b>얼마나 인기?</b> 2025년에만 약 48만 개가 팔렸어요. 2026년엔 2시간 넘게 기다린 사람도 있었어요.</li>
+            <li><b>꿀팁</b> 문 여는 시간에 맞춰 가장 먼저 줄을 서세요!</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sheet-wrap w-2">
+        <label class="sheet-dim" for="sh-2" aria-label="닫기"></label>
+        <div class="sheet" role="dialog" aria-label="라면 레스토랑 거리 자세히">
+          <span class="sheet-handle"></span>
+          <div class="sheet-head"><span class="emoji">🍜</span><h3>라면 레스토랑 거리</h3><label class="sheet-close" for="sh-2">닫기 ✕</label></div>
+          <ul class="sheet-list">
+            <li><b>어디예요?</b> 구미역 앞 약 475m 거리 전체가 ‘세상에서 가장 긴 라면 식당’이 돼요.</li>
+            <li><b>몇 곳이에요?</b> 2026년엔 라면 가게 25곳과 라면 트럭 8대, 모두 33곳이 함께했어요.</li>
+            <li><b>어떻게 주문해요?</b> ① 휴대폰 QR 주문 ② 키오스크(카드·구미사랑상품권) ③ 현금은 통합관리소에서 주문해요.</li>
+            <li><b>운영 시간 (2026년)</b> 금 11:00~21:00 · 토 10:00~21:00 · 일 10:00~19:00</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sheet-wrap w-3">
+        <label class="sheet-dim" for="sh-3" aria-label="닫기"></label>
+        <div class="sheet" role="dialog" aria-label="이색 라면 자세히">
+          <span class="sheet-handle"></span>
+          <div class="sheet-head"><span class="emoji">🦀</span><h3>이색 라면</h3><label class="sheet-close" for="sh-3">닫기 ✕</label></div>
+          <ul class="sheet-list">
+            <li><b>2026년 화제 메뉴</b> 복튀김 생참복라면, 송이·능이 산중라면, 족발 라면, 감태·명란 크림라면</li>
+            <li><b>2025년 화제 메뉴</b> 오징어 먹물 크림라면, 꿀배 LA갈비 짜장라면, 지중해 토마토 라면</li>
+            <li><b>맵지 않은 메뉴도 있어요</b> 토마토·크림·짜장 라면은 매운 걸 못 먹어도 괜찮아요.</li>
+            <li><b>더 보기</b> 연도별 인기 라면은 <a href="#hits">인기 라면 모음</a>에서 볼 수 있어요.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="sheet-wrap w-4">
+        <label class="sheet-dim" for="sh-4" aria-label="닫기"></label>
+        <div class="sheet" role="dialog" aria-label="구미 밀로 만든 라면 자세히">
+          <span class="sheet-handle"></span>
+          <div class="sheet-head"><span class="emoji">🌾</span><h3>구미 밀로 만든 라면</h3><label class="sheet-close" for="sh-4">닫기 ✕</label></div>
+          <ul class="sheet-list">
+            <li><b>이름</b> 구미라면축제면 (2026년 축제 한정)</li>
+            <li><b>무엇으로?</b> 구미 농업인과 소상공인이 함께 만든 우리밀 브랜드 ‘구미밀가리’의 밀로 만들었어요.</li>
+            <li><b>몇 개?</b> 딱 20만 봉지만 만들었어요. 따로 팔지 않고 갓 튀긴 라면 가방에 넣어 팔았어요.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 연도별 인기 라면 -->
+  <section id="hits">
+    <div class="wrap">
+      <h2>2022~2026 인기 라면 모음</h2>
+      <p class="lead">해마다 어떤 라면이 사람들 입맛을 사로잡았을까요? 연도를 눌러 보세요.</p>
+
+      <div class="champion">
+        <div class="crown">👑</div>
+        <div>
+          <b>5년 내내 줄이 가장 길었던 라면은? 바로 ‘갓 튀긴 라면’!</b>
+          <p>구미 공장에서 막 만든 신라면·짜파게티·안성탕면·너구리 등을 묶어서 파는 코너예요. 2025년에만 <b>약 48만 개</b>가 팔렸고, 2026년에는 몇 시간씩 줄을 서야 살 수 있었어요. 라면 묶음을 등에 메고 다니는 사람들을 보고 ‘라면 거북이’라는 별명까지 생겼답니다. 🐢</p>
+        </div>
+      </div>
+
+      <input class="sw-in" type="radio" name="year" id="yr-2022">
+      <input class="sw-in" type="radio" name="year" id="yr-2023">
+      <input class="sw-in" type="radio" name="year" id="yr-2024">
+      <input class="sw-in" type="radio" name="year" id="yr-2025">
+      <input class="sw-in" type="radio" name="year" id="yr-2026" checked>
+      <div class="years" aria-label="연도 고르기">
+        <label class="year-btn" for="yr-2022">2022</label>
+        <label class="year-btn" for="yr-2023">2023</label>
+        <label class="year-btn" for="yr-2024">2024</label>
+        <label class="year-btn" for="yr-2025">2025</label>
+        <label class="year-btn" for="yr-2026">2026</label>
+      </div>
+
+      <div class="year-panel p-2022">
+        <p class="year-title"><span>1회</span> 모든 것의 시작</p>
+        <div class="grid">
+          <div class="card"><div class="emoji">🔥</div><h3>갓 튀긴 라면</h3><p>“라면 공장이 있는 도시니까, 만든 지 2~3일도 안 된 라면을 맛보게 하자!”라는 아이디어에서 축제가 시작됐어요. 첫해부터 농심이 함께했어요.</p><span class="tag">축제가 생긴 이유</span></div>
+        </div>
+        <p class="year-fact">👥 방문객 약 1만 명으로 작게 출발했어요.</p>
+      </div>
+
+      <div class="year-panel p-2023">
+        <p class="year-title"><span>2회</span> 이색 라면의 등장</p>
+        <div class="grid">
+          <div class="card"><div class="emoji">🥬</div><h3>마녀라면</h3><p>라면 스프 대신 <b>시금치·당근·자색고구마</b>로 만든 소스를 넣은 건강한 라면. 그해 가장 주목받은 메뉴예요.</p><span class="tag">2023 화제 메뉴</span></div>
+          <div class="card"><div class="emoji">🌶️</div><h3>최루탄 김치라면</h3><p>이름처럼 눈물이 날 만큼 매운 김치라면. 매운맛 도전을 좋아하는 사람들에게 인기였어요.</p><span class="tag">매운맛 끝판왕</span></div>
+          <div class="card"><div class="emoji">🐟</div><h3>황태 해장라면</h3><p>말린 명태(황태)로 국물을 낸 시원하고 개운한 라면이에요.</p><span class="tag">시원한 국물</span></div>
+          <div class="card"><div class="emoji">🥩</div><h3>소불고기 짜장라면</h3><p>달콤한 짜장라면 위에 소불고기를 듬뿍 올렸어요. 고기 좋아하는 사람이라면 강력 추천!</p><span class="tag">든든한 한 그릇</span></div>
+        </div>
+        <p class="year-fact">👥 방문객 약 10만 명 · 라면 요리 30여 가지가 한 그릇 5,000~8,000원에 나왔어요.</p>
+      </div>
+
+      <div class="year-panel p-2024">
+        <p class="year-title"><span>3회</span> 세상에서 가장 긴 라면 식당</p>
+        <div class="grid">
+          <div class="card"><div class="emoji">🥪</div><h3>금오산 볶라샌드</h3><p>볶은 라면을 빵 사이에 끼운 라면 샌드위치. 구미의 산 ‘금오산’ 이름을 붙였어요.</p><span class="tag">라면 + 빵</span></div>
+          <div class="card"><div class="emoji">🌮</div><h3>칠리 라면 타코</h3><p>멕시코 음식 타코에 매콤한 라면을 넣었어요. 한 손에 들고 걸으며 먹기 좋아요.</p><span class="tag">라면 + 타코</span></div>
+          <div class="card"><div class="emoji">🔥</div><h3>불맛 대패라면</h3><p>얇게 썬 대패 삼겹살을 불에 볶아 올려 불 향이 가득한 라면이에요.</p><span class="tag">고기 듬뿍</span></div>
+          <div class="card"><div class="emoji">🎨</div><h3>나만의 라면 만들기</h3><p>라면 봉지를 직접 꾸미고, 원하는 스프와 건더기를 골라 담아 <b>세상에 하나뿐인 라면</b>을 만드는 체험이 큰 인기였어요.</p><span class="tag">인기 체험</span></div>
+        </div>
+        <p class="year-fact">👥 방문객 약 17만 명 · 이해부터 구미역 앞 거리가 ‘세상에서 가장 긴 라면 식당’이 되었어요.</p>
+      </div>
+
+      <div class="year-panel p-2025">
+        <p class="year-title"><span>4회</span> 35만 명이 찾은 역대급 축제</p>
+        <div class="grid">
+          <div class="card"><div class="emoji">🦑</div><h3>오징어 먹물 크림라면</h3><p>까만 오징어 먹물로 만든 고소한 크림 라면. 생김새부터 눈길을 끌었어요.</p><span class="tag">비주얼 화제</span></div>
+          <div class="card"><div class="emoji">🍐</div><h3>꿀배 LA갈비 짜장라면</h3><p>꿀과 배로 달콤하게 재운 LA갈비를 짜장라면에 올린 푸짐한 메뉴예요.</p><span class="tag">고기 + 짜장</span></div>
+          <div class="card"><div class="emoji">🐡</div><h3>복튀김 라면</h3><p>바삭하게 튀긴 복어를 올린 라면. 쉽게 먹어 보기 힘든 재료라 인기였어요.</p><span class="tag">특별한 재료</span></div>
+          <div class="card"><div class="emoji">🍅</div><h3>지중해 토마토 라면</h3><p>토마토를 넣어 새콤하고 이국적인 맛을 낸 라면이에요. 매운 걸 못 먹는 사람에게도 좋아요.</p><span class="tag">안 매워요</span></div>
+        </div>
+        <p class="year-fact">👥 방문객 약 35만 명 · 갓 튀긴 라면 약 48만 개 · 이색 라면 약 5만 4천 그릇이 팔렸어요.</p>
+      </div>
+
+      <div class="year-panel p-2026">
+        <p class="year-title"><span>5회</span> 구미 밀로 만든 라면 탄생</p>
+        <div class="grid">
+          <div class="card"><div class="emoji">🌾</div><h3>구미라면축제면</h3><p>구미에서 키운 밀(구미밀가리)로 농심이 만든 <b>축제 한정 라면</b>. 딱 20만 봉지만 만들었어요. 신라면·안성탕면·짜파게티·너구리와 함께 든 라면 가방으로만 팔았고, <b>한 사람당 1개</b>만 살 수 있었어요.</p><span class="tag">2026 한정판</span></div>
+          <div class="card"><div class="emoji">🐡</div><h3>복튀김 생참복라면</h3><p>싱싱한 참복과 바삭한 복튀김을 함께 올린 고급 라면이에요.</p><span class="tag">화제 메뉴</span></div>
+          <div class="card"><div class="emoji">🍄</div><h3>송이·능이 산중라면</h3><p>귀한 버섯인 송이와 능이를 넣어 산의 향이 가득한 라면이에요.</p><span class="tag">버섯 향 가득</span></div>
+          <div class="card"><div class="emoji">🐷</div><h3>족발 라면</h3><p>라면 위에 족발을 통째로 올렸어요. 구미 시장의 족발 맛을 라면으로!</p><span class="tag">구미 시장의 맛</span></div>
+        </div>
+        <p class="year-fact">📈 첫날 라면 식당 주문이 약 2만 2천 건으로, 전년 첫날보다 약 47% 늘었어요. 2,700개 좌석이 빈자리가 없을 정도였어요.</p>
+      </div>
+
+      <p class="small" style="margin-top:16px">※ 구미시와 농심은 메뉴별 판매 순위를 공개하지 않았어요. 여기서는 줄이 가장 길었던 메뉴와 언론에서 화제가 된 메뉴를 골랐어요. 2022년은 메뉴 기록이 거의 남아 있지 않아요.</p>
+    </div>
+  </section>
+
+  <!-- 즐길거리 -->
+  <section id="fun">
+    <div class="wrap">
+      <h2>먹는 것 말고도 즐길 거리</h2>
+      <p class="lead">구경하고, 응원하고, 직접 참여해 보세요.</p>
+      <div class="grid">
+        <div class="card">
+          <div class="emoji">🌏</div>
+          <h3>글로벌 라면 챌린지</h3>
+          <p>세계 여러 나라 사람들이 라면 요리 실력을 겨루는 대회예요. 2026년에는 80개 나라에서 1,263명이 도전했고, 13개 나라 대표가 결승에 올랐어요. 관객도 투표할 수 있어요.</p>
+        </div>
+        <div class="card">
+          <div class="emoji">🚂</div>
+          <h3>라면 팝업 열차</h3>
+          <p>축제장에서 출발해 송정맛길, 도리사(절), 금오산 같은 구미의 볼거리를 잇는 특별 열차예요. 라면도 먹고 구미 여행도 할 수 있어요.</p>
+        </div>
+        <div class="card">
+          <div class="emoji">🧒</div>
+          <h3>키즈 페스티벌</h3>
+          <p>금오산 잔디광장에서 어린이들을 위한 놀이 행사가 열려요. 아이와 함께라면 꼭 들러 보세요.</p>
+        </div>
+        <div class="card">
+          <div class="emoji">🎤</div>
+          <h3>공연과 면치기 대회</h3>
+          <p>무대 공연과 함께, 라면을 후루룩 소리 내며 맛있게 먹는 ‘면치기’ 대회 같은 재미있는 참여 행사도 열려요.</p>
+        </div>
+      </div>
+      <p class="small" style="margin-top:16px">※ 프로그램은 해마다 달라질 수 있어요. 위 내용은 2025~2026년 축제를 바탕으로 했어요.</p>
+    </div>
+  </section>
+
+  <!-- 하루 코스 -->
+  <section id="course">
+    <div class="wrap">
+      <h2>처음이라면, 이렇게 즐겨 보세요</h2>
+      <p class="lead">축제 초보를 위한 추천 하루 코스예요. 오른쪽 <b>레버</b>를 눌러 시간대를 옮겨 보세요.</p>
+      <div class="lever-box">
+        <input class="sw-in" type="radio" name="lever" id="lv-1" checked>
+        <input class="sw-in" type="radio" name="lever" id="lv-2">
+        <input class="sw-in" type="radio" name="lever" id="lv-3">
+        <input class="sw-in" type="radio" name="lever" id="lv-4">
+        <input class="sw-in" type="radio" name="lever" id="lv-5">
+        <div class="lever-stage">
+          <div class="lv-panel p-lv1"><div class="lv-emoji">🚆</div><p class="lv-time">STEP 1 · 오전 10시</p><h3>구미역 도착</h3><p>기차에서 내리면 바로 축제장이에요. 사람이 적은 오전이 가장 여유로워요.</p></div>
+          <div class="lv-panel p-lv2"><div class="lv-emoji">🔥</div><p class="lv-time">STEP 2 · 오전 10시 반</p><h3>갓 튀긴 라면부터 사기</h3><p>가장 인기 있는 코너라 줄이 금방 길어져요. 라면 가방은 한 사람당 1개! 집에 가져갈 선물이 돼요.</p></div>
+          <div class="lv-panel p-lv3"><div class="lv-emoji">🍜</div><p class="lv-time">STEP 3 · 점심</p><h3>라면 거리에서 한 그릇</h3><p>33곳 중 마음에 드는 곳에서 QR로 주문! 서로 다른 라면을 시켜 나눠 먹으면 더 많이 맛볼 수 있어요.</p></div>
+          <div class="lv-panel p-lv4"><div class="lv-emoji">🎤</div><p class="lv-time">STEP 4 · 오후</p><h3>공연·대회 구경</h3><p>무대 공연과 라면 대회를 보며 쉬어 가요. 금리단길 카페에서 커피 한잔도 좋아요.</p></div>
+          <div class="lv-panel p-lv5"><div class="lv-emoji">🌅</div><p class="lv-time">STEP 5 · 저녁</p><h3>구미 여행 더하기</h3><p>새마을중앙시장에서 족발로 저녁을 먹거나, 낙동강 노을을 보며 하루를 마무리해요.</p></div>
+        </div>
+        <div class="lever" aria-label="시간대 레버">
+          <span class="lever-track"><span class="knob"></span></span>
+          <label for="lv-1">오전</label>
+          <label for="lv-2">라면 사기</label>
+          <label for="lv-3">점심</label>
+          <label for="lv-4">오후</label>
+          <label for="lv-5">저녁</label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 주변 여행 -->
+  <section id="nearby">
+    <div class="wrap">
+      <h2>라면 먹고 구미 한 바퀴!</h2>
+      <p class="lead">구미까지 왔다면 라면만 먹고 가기엔 아까워요. 축제장 가까운 곳부터 차례로 소개할게요.</p>
+
+      <input class="sw-in" type="radio" name="near" id="nr-walk" checked>
+      <input class="sw-in" type="radio" name="near" id="nr-bus">
+      <input class="sw-in" type="radio" name="near" id="nr-eat">
+      <div class="tabs" aria-label="거리별 장소 고르기">
+        <label class="tab" for="nr-walk">🚶 걸어서 갈 수 있어요</label>
+        <label class="tab" for="nr-bus">🚌 버스·차로 가요</label>
+        <label class="tab" for="nr-eat">🍽️ 라면 말고 또 뭐 먹지?</label>
+      </div>
+
+      <div class="tab-panel p-walk">
+        <div class="grid">
+          <div class="card">
+            <div class="emoji">🏮</div>
+            <h3>새마을중앙시장</h3>
+            <p>구미역 바로 근처, 오래된 시내 한가운데 있는 전통시장이에요. 새콤달콤하게 무친 <b>무침족발</b>과 매콤한 <b>불족발</b>이 유명해요. 밤에는 먹거리 노점이 열리는 <b>낭만야시장</b>도 운영돼요.</p>
+            <span class="tag">축제장에서 걸어서 가까워요</span>
+          </div>
+          <div class="card">
+            <div class="emoji">☕</div>
+            <h3>금리단길</h3>
+            <p>구미역에서 금오산 쪽으로 이어지는 골목길이에요. 예쁜 카페, 작은 식당, 소품 가게가 모여 있어서 라면 먹고 커피 한잔하며 쉬어 가기 좋아요. 사진 찍기 좋은 곳과 밤 조명도 있어요.</p>
+            <span class="tag">카페·사진 맛집</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel p-bus">
+        <div class="grid">
+          <div class="card">
+            <div class="emoji">⛰️</div>
+            <h3>금오산 도립공원</h3>
+            <p>구미를 대표하는 산이에요. <b>케이블카</b>를 타고 올라가 <b>대혜폭포</b>까지 걸으면 힘들지 않게 산을 즐길 수 있어요. 산 아래 <b>금오지 저수지 둘레길(올레길)</b>과 옛 정자 <b>채미정</b>은 11월 단풍이 특히 예뻐요.</p>
+            <span class="tag">구미역에서 시내버스·택시로 가까워요</span>
+          </div>
+          <div class="card">
+            <div class="emoji">🌳</div>
+            <h3>구미에코랜드</h3>
+            <p>숲속 체험 공원이에요. 높이 18m짜리 <b>나무 모양 탑(트리타워)</b>에 64가지 모험 놀이 코스와 전망대가 있어서, 아이와 함께라면 강력 추천해요.</p>
+            <span class="tag">가족 추천</span>
+          </div>
+          <div class="card">
+            <div class="emoji">🚲</div>
+            <h3>낙동강체육공원 · 동락공원</h3>
+            <p>낙동강을 따라 넓게 펼쳐진 공원이에요. 자전거를 빌려 강변을 달리고, 해 질 무렵 <b>낙동강 노을</b>을 바라보면 하루가 꽉 차요.</p>
+            <span class="tag">산책·자전거</span>
+          </div>
+          <div class="card">
+            <div class="emoji">🛕</div>
+            <h3>도리사</h3>
+            <p>신라 시대에 세워졌다고 전해지는 아주 오래된 절이에요. 시내에서 조금 멀지만, 축제 때는 <b>라면 팝업 열차</b> 코스에 들어가기도 했어요.</p>
+            <span class="tag">조용한 산사</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-panel p-eat">
+        <div class="grid">
+          <div class="card">
+            <div class="emoji">🥢</div>
+            <h3>송정맛길</h3>
+            <p>복개천(덮어 놓은 하천) 양쪽으로 식당이 줄지어 있는 <b>맛집 거리</b>예요. 2026년 정부의 ‘K-푸드로드’ 사업에 뽑혀 앞으로 더 멋진 먹거리 관광지로 꾸며질 예정이에요.</p>
+            <span class="tag">저녁 먹기 좋은 곳</span>
+          </div>
+          <div class="card">
+            <div class="emoji">🐷</div>
+            <h3>시장 족발</h3>
+            <p>새마을중앙시장의 무침족발·불족발은 구미 사람들이 손꼽는 별미예요. 라면으로 점심을 먹었다면 저녁은 족발로!</p>
+            <span class="tag">구미 대표 별미</span>
+          </div>
+          <div class="card">
+            <div class="emoji">🧺</div>
+            <h3>선산봉황시장</h3>
+            <p>구미 북쪽 선산읍에 있는 전통시장이에요. 장날 분위기와 시골 장터 먹거리를 느낄 수 있어요.</p>
+            <span class="tag">장터 구경</span>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-top:36px">🗓️ 1박 2일 추천 코스</h3>
+      <div class="plan2">
+        <div class="day">
+          <b>첫째 날 · 축제 즐기기</b>
+          <ol>
+            <li>오전: 구미역 도착 → 갓 튀긴 라면 사기</li>
+            <li>점심: 라면 거리에서 이색 라면</li>
+            <li>오후: 공연 구경 → 금리단길 카페</li>
+            <li>저녁: 새마을중앙시장 족발 &amp; 야시장</li>
+          </ol>
+        </div>
+        <div class="day">
+          <b>둘째 날 · 구미 여행</b>
+          <ol>
+            <li>오전: 금오산 케이블카 → 대혜폭포</li>
+            <li>점심: 송정맛길</li>
+            <li>오후: 구미에코랜드 또는 낙동강 자전거</li>
+            <li>저녁: 노을 보고 집으로!</li>
+          </ol>
+        </div>
+      </div>
+      <p class="small" style="margin-top:12px">※ 운영 시간과 요금은 장소마다 다르고 바뀔 수 있어요. 가기 전에 지도 앱이나 각 장소 안내를 확인하세요.</p>
+    </div>
+  </section>
+
+  <!-- 오시는 길 -->
+  <section id="way">
+    <div class="wrap">
+      <h2>오시는 길</h2>
+      <p class="lead">축제장이 <b>구미역 바로 앞</b>이라 기차·전철이 가장 편해요. 출발하는 곳을 고르면 추천 방법을 알려 드려요.</p>
+
+      <div class="finder">
+        <p class="finder-q"><b>어디에서 오시나요?</b> <span class="small">눌러서 골라 보세요</span></p>
+        <input class="sw-in" type="radio" name="from" id="fr-seoul" checked>
+        <input class="sw-in" type="radio" name="from" id="fr-daegu">
+        <input class="sw-in" type="radio" name="from" id="fr-busan">
+        <input class="sw-in" type="radio" name="from" id="fr-daejeon">
+        <input class="sw-in" type="radio" name="from" id="fr-gwangju">
+        <input class="sw-in" type="radio" name="from" id="fr-local">
+        <div class="from-pills">
+          <label for="fr-seoul">서울·경기</label>
+          <label for="fr-daegu">대구</label>
+          <label for="fr-busan">부산</label>
+          <label for="fr-daejeon">대전</label>
+          <label for="fr-gwangju">광주</label>
+          <label for="fr-local">구미 시내</label>
+        </div>
+        <div class="route p-seoul">
+          <ol><li>서울역·용산역</li><li class="arrow" aria-hidden="true">→</li><li>ITX-새마을 / 무궁화호</li><li class="arrow" aria-hidden="true">→</li><li>구미역 도착 = 축제장</li></ol>
+          <p class="alt">💡 빠르게 오고 싶다면: KTX로 김천구미역 → 택시·버스로 구미역. 편하게 오고 싶다면: 카카오 T 셔틀(서울역·잠실역·사당역 출발)로 축제장까지 한 번에!</p>
+        </div>
+        <div class="route p-daegu">
+          <ol><li>대구역·서대구역 등</li><li class="arrow" aria-hidden="true">→</li><li>대경선 전철 (약 30분대)</li><li class="arrow" aria-hidden="true">→</li><li>구미역 도착 = 축제장</li></ol>
+          <p class="alt">💡 전철이 붐비면 경부선 일반 열차나 카카오 T 셔틀(대구 출발)도 있어요.</p>
+        </div>
+        <div class="route p-busan">
+          <ol><li>부산역</li><li class="arrow" aria-hidden="true">→</li><li>경부선 일반 열차</li><li class="arrow" aria-hidden="true">→</li><li>구미역 도착 = 축제장</li></ol>
+          <p class="alt">💡 KTX로 동대구역까지 온 뒤 대경선 전철로 갈아타는 방법도 있어요. 카카오 T 셔틀(부산 출발)도 운영됐어요.</p>
+        </div>
+        <div class="route p-daejeon">
+          <ol><li>대전역</li><li class="arrow" aria-hidden="true">→</li><li>경부선 일반 열차</li><li class="arrow" aria-hidden="true">→</li><li>구미역 도착 = 축제장</li></ol>
+          <p class="alt">💡 KTX를 타면 김천구미역에서 내려 택시·버스로 갈아타요. 카카오 T 셔틀(대전 출발)도 운영됐어요.</p>
+        </div>
+        <div class="route p-gwangju">
+          <ol><li>광주</li><li class="arrow" aria-hidden="true">→</li><li>카카오 T 셔틀 또는 고속버스</li><li class="arrow" aria-hidden="true">→</li><li>축제장 / 구미종합터미널</li></ol>
+          <p class="alt">💡 광주에서는 기차보다 셔틀이나 버스가 편해요. 터미널에 내렸다면 시내버스·택시로 구미역까지 가요.</p>
+        </div>
+        <div class="route p-local">
+          <ol><li>집 근처 정류장</li><li class="arrow" aria-hidden="true">→</li><li>시내버스 또는 축제 시내 셔틀</li><li class="arrow" aria-hidden="true">→</li><li>구미역 앞 축제장</li></ol>
+          <p class="alt">💡 축제 기간엔 구미역 앞 도로를 막아서 차를 가져오면 오히려 오래 걸려요. 대중교통을 추천해요!</p>
+        </div>
+      </div>
+
+      <div class="grid" style="margin-top:24px">
+        <div class="card">
+          <div class="emoji">🚆</div>
+          <h3>일반 기차 → 구미역</h3>
+          <p>ITX-새마을, 무궁화호 같은 경부선 일반 열차가 <b>구미역</b>에 서요. 역에서 나오면 바로 축제장이에요.</p>
+          <span class="tag">내리면 바로 축제장</span>
+        </div>
+        <div class="card">
+          <div class="emoji">🚄</div>
+          <h3>KTX → 김천구미역</h3>
+          <p><b>주의!</b> KTX는 구미역에 서지 않고, 옆 도시 김천에 있는 <b>김천구미역</b>에 서요. 여기서 택시나 버스로 갈아타고 구미역까지 와야 해요.</p>
+          <span class="tag">이름이 비슷해서 헷갈려요</span>
+        </div>
+        <div class="card">
+          <div class="emoji">🚇</div>
+          <h3>대경선 (대구 ↔ 구미 전철)</h3>
+          <p>대구와 구미를 잇는 전철이에요. 구미역에서 서대구역까지 약 37분, 요금은 기본 1,500원부터예요. 새벽 5시부터 자정까지, 약 20~25분마다 다녀요. 축제 날엔 무척 붐벼요.</p>
+          <span class="tag">대구에서 오면 최고</span>
+        </div>
+        <div class="card">
+          <div class="emoji">🚌</div>
+          <h3>고속·시외버스</h3>
+          <p>전국 곳곳에서 <b>구미종합터미널</b>로 오는 버스가 있어요. 터미널에서 구미역까지는 시내버스나 택시로 가까워요.</p>
+          <span class="tag">기차표가 없을 때</span>
+        </div>
+        <div class="card">
+          <div class="emoji">🚐</div>
+          <h3>축제 셔틀버스</h3>
+          <p>2026년에는 <b>카카오 T 셔틀</b> 7개 노선(서울역·잠실역·사당역·대구·부산·대전·광주)이 축제장까지 바로 갔어요. 카카오 T 앱에서 미리 예약하는 방식이에요. 구미 시내에서는 셔틀버스 A·B·C 3개 코스가 다녔어요. <a href="#parking">코스 보기 →</a></p>
+          <span class="tag">갈아탈 필요 없어요</span>
+        </div>
+        <div class="card">
+          <div class="emoji">🚗</div>
+          <h3>자동차</h3>
+          <p>축제 기간에는 걷는 사람이 안전하도록 구미역 앞 거리의 <b>차량 통행을 막아요</b>. 축제장에서 조금 떨어진 <b>셔틀버스 주차장</b>에 세우고 셔틀을 타는 게 편해요. <a href="#parking">주차장 보기 →</a></p>
+          <span class="tag">주말엔 주차 전쟁</span>
+        </div>
+      </div>
+
+      <div class="notice">
+        ☎️ <b>궁금한 점은 여기로!</b> 구미시 축제 문의 054-480-2651~3 · 셔틀 노선과 시간표, 임시 주차장 위치는 축제 직전에 구미시가 발표해요.
+      </div>
+    </div>
+  </section>
+
+  <!-- 셔틀버스 · 주차장 -->
+  <section id="parking">
+    <div class="wrap">
+      <h2>셔틀버스 · 주차장 안내</h2>
+      <p class="lead">차를 가져온다면 <b>셔틀버스 주차장에 세우고 셔틀을 타는 것</b>이 가장 편해요. 2026년 공식 안내를 그대로 옮겼어요.</p>
+
+      <h3 class="sub-title" style="margin-top:0">🚌 셔틀버스 3개 코스</h3>
+      <p class="small" style="margin:-6px 0 14px">코스를 누르면 자세한 내용이 열려요. 모든 셔틀은 축제장 <b>구미초등학교</b> 앞(아이파크 맞은편)에 내려요.</p>
+      <div class="courses">
+        <details class="course">
+          <summary><span class="cbadge">A</span><span><b>복합스포츠센터</b><small>구미시민운동장 → 축제장 · 10분 간격</small></span></summary>
+          <ul>
+            <li>🅿️ 바로 옆에 셔틀버스 전용 주차장 3곳(약 1,200면)이 있어서 <b>차로 오는 사람에게 가장 추천</b>해요.</li>
+            <li>⏱️ 10분마다 출발해서 오래 기다리지 않아요.</li>
+          </ul>
+        </details>
+        <details class="course">
+          <summary><span class="cbadge b">B</span><span><b>구미농산물도매시장</b><small>도매시장 → 축제장 · 10~15분 간격</small></span></summary>
+          <ul>
+            <li>🧺 도매시장 쪽에서 출발해요. 이 주변에서 오는 사람에게 편해요.</li>
+            <li>⏱️ 10~15분마다 출발해요.</li>
+          </ul>
+        </details>
+        <details class="course">
+          <summary><span class="cbadge c">C</span><span><b>선산버스터미널</b><small>선산터미널 → 축제장 · 30분 간격</small></span></summary>
+          <ul>
+            <li>🏞️ 구미 북쪽 선산읍에서 오는 사람을 위한 코스예요.</li>
+            <li>⏱️ 30분마다 출발하니 시간을 미리 확인하세요.</li>
+          </ul>
+        </details>
+      </div>
+
+      <div class="table-wrap">
+        <table class="info-table time-table">
+          <thead><tr><th>날짜</th><th>주차장 → 축제장</th><th>축제장 → 주차장</th></tr></thead>
+          <tbody>
+            <tr><td>11. 6. (금)</td><td>11:00 ~ 19:00</td><td>12:00 ~ 21:00</td></tr>
+            <tr><td>11. 7. (토)</td><td>10:00 ~ 19:00</td><td>12:00 ~ 21:00</td></tr>
+            <tr class="warn"><td>11. 8. (일)</td><td>10:00 ~ <b>17:00</b></td><td>12:00 ~ <b>19:00</b></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small">⚠️ 일요일은 셔틀이 일찍 끝나요. 배차 간격은 상황에 따라 바뀔 수 있고, 실시간 운행 정보는 카카오맵에서 볼 수 있어요.</p>
+
+      <h3 class="sub-title">🅿️ 주차장 고르기</h3>
+      <input class="sw-in" type="radio" name="park" id="pk-shuttle" checked>
+      <input class="sw-in" type="radio" name="park" id="pk-walk">
+      <input class="sw-in" type="radio" name="park" id="pk-station">
+      <div class="tabs" aria-label="주차장 종류 고르기">
+        <label class="tab" for="pk-shuttle">🚌 셔틀 타고 갈래요</label>
+        <label class="tab" for="pk-walk">🚶 걸어서 갈래요</label>
+        <label class="tab" for="pk-station">🚉 구미역 바로 옆 (유료)</label>
+      </div>
+
+      <div class="park-panel p-shuttle">
+        <p class="park-desc">셔틀 A코스(10분 간격)를 타는 곳 바로 옆이에요. 자리가 가장 많아요.</p>
+        <ul class="lots">
+          <li><b>복합스포츠센터</b><span class="cnt">426면</span><span class="addr">박정희로 375-7</span><a href="https://map.kakao.com/?q=구미시 박정희로 375-7" target="_blank" rel="noopener">지도</a></li>
+          <li><b>보조경기장</b><span class="cnt">435면</span><span class="addr">박정희로 375-20</span><a href="https://map.kakao.com/?q=구미시 박정희로 375-20" target="_blank" rel="noopener">지도</a></li>
+          <li><b>시민운동장</b><span class="cnt">343면</span><span class="addr">박정희로 375-22</span><a href="https://map.kakao.com/?q=구미시 박정희로 375-22" target="_blank" rel="noopener">지도</a></li>
+        </ul>
+      </div>
+      <div class="park-panel p-walk">
+        <p class="park-desc">금오산 쪽 주차장이에요. 축제장까지 걸어가거나, 금오산 구경과 함께 하기 좋아요.</p>
+        <ul class="lots">
+          <li><b>금오산대주차장</b><span class="cnt">789면</span><span class="addr">금오산로 218</span><a href="https://map.kakao.com/?q=구미시 금오산로 218" target="_blank" rel="noopener">지도</a></li>
+          <li><b>금오천 1~3공영</b><span class="cnt">465면</span><span class="addr">금오산로 53-9</span><a href="https://map.kakao.com/?q=구미시 금오산로 53-9" target="_blank" rel="noopener">지도</a></li>
+          <li><b>올림픽기념생활관</b><span class="cnt">171면</span><span class="addr">산책길 63</span><a href="https://map.kakao.com/?q=구미시 산책길 63" target="_blank" rel="noopener">지도</a></li>
+          <li><b>노인종합복지관</b><span class="cnt">44면</span><span class="addr">산책길 51</span><a href="https://map.kakao.com/?q=구미시 산책길 51" target="_blank" rel="noopener">지도</a></li>
+          <li><b>금오테니스장</b><span class="cnt">40면</span><span class="addr">산책길 105</span><a href="https://map.kakao.com/?q=구미시 산책길 105" target="_blank" rel="noopener">지도</a></li>
+          <li><b>CGV 뒤편</b> <em class="paid">유료</em><span class="cnt">50면</span><span class="addr">원평동 72-4</span><a href="https://map.kakao.com/?q=구미시 원평동 72-4" target="_blank" rel="noopener">지도</a></li>
+        </ul>
+      </div>
+      <div class="park-panel p-station">
+        <p class="park-desc">축제장과 가장 가깝지만 돈을 내야 하고, 주말에는 금방 차요.</p>
+        <ul class="lots">
+          <li><b>구미역사 타워주차장</b> <em class="paid">유료</em><span class="cnt">362면</span><span class="addr">구미중앙로 76</span><a href="https://map.kakao.com/?q=구미시 구미중앙로 76" target="_blank" rel="noopener">지도</a></li>
+          <li><b>구미역 후면광장 지하주차장</b> <em class="paid">유료</em><span class="cnt">260면</span><span class="addr">구미중앙로 76</span><a href="https://map.kakao.com/?q=구미시 구미중앙로 76" target="_blank" rel="noopener">지도</a></li>
+        </ul>
+      </div>
+      <p class="source">출처: 2026 구미라면축제 공식 홈페이지(gumiramyun.com) 셔틀버스·주차장 안내. 다음 축제 때는 장소와 시간이 바뀔 수 있어요.</p>
+    </div>
+  </section>
+
+  <!-- 꿀팁 & 준비물 -->
+  <section id="tips">
+    <div class="wrap">
+      <h2>알아 두면 좋은 꿀팁</h2>
+      <p class="lead">출발 전에 하나씩 체크해 보세요. 체크한 내용은 이 기기에 저장돼요.</p>
+      <h3 class="sub-title" style="margin-top:0">🎒 출발 전 준비물 체크</h3>
+      <p class="progress" id="progress">0 / 10 준비 완료</p>
+      <ul class="checklist" id="checklist">
+        <li><label><input type="checkbox" data-id="sns"><span><b>공식 인스타그램 확인하기</b> — 날짜, 메뉴, 날씨 때문에 바뀐 일정이 가장 먼저 올라와요. (@gumi_ramyun)</span></label></li>
+        <li><label><input type="checkbox" data-id="shuttle"><span><b>셔틀버스 미리 예약하기</b> — 먼 곳에서 온다면 카카오 T 셔틀 자리가 금방 차요.</span></label></li>
+        <li><label><input type="checkbox" data-id="battery"><span><b>휴대폰 충전 + 보조배터리</b> — QR 주문, 대기 알림, 사진 찍기까지 배터리가 금방 닳아요.</span></label></li>
+        <li><label><input type="checkbox" data-id="card"><span><b>교통카드·결제 수단 챙기기</b> — 대경선·시내버스용 교통카드와 카드, 혹시 모를 약간의 현금도요.</span></label></li>
+        <li><label><input type="checkbox" data-id="shoes"><span><b>편한 신발 신기</b> — 축제장이 넓고 오래 서서 기다려야 해요.</span></label></li>
+        <li><label><input type="checkbox" data-id="bag"><span><b>장바구니·큰 가방 챙기기</b> — 묶음 라면을 사면 짐이 꽤 많아져요.</span></label></li>
+        <li><label><input type="checkbox" data-id="warm"><span><b>따뜻한 옷 입기</b> — 11월 저녁은 쌀쌀해요. 오래 줄 서 있으면 더 춥게 느껴져요.</span></label></li>
+        <li><label><input type="checkbox" data-id="tissue"><span><b>물티슈·휴지</b> — 국물 요리라 손과 옷에 튀기 쉬워요.</span></label></li>
+        <li><label><input type="checkbox" data-id="water"><span><b>물 한 병</b> — 매운 라면 먹고 나면 꼭 찾게 돼요.</span></label></li>
+        <li><label><input type="checkbox" data-id="early"><span><b>일찍 출발하기</b> — 인기 메뉴는 금방 줄이 길어지고, 주말 오후가 가장 붐벼요.</span></label></li>
+      </ul>
+
+      <h3 class="sub-title">💡 현장에서 써먹는 꿀팁</h3>
+      <div class="grid">
+        <div class="card"><div class="emoji">📱</div><h3>QR로 주문하기</h3><p>가게 앞 QR 코드를 휴대폰 카메라로 찍으면 줄을 서지 않고 주문할 수 있어요.</p></div>
+        <div class="card"><div class="emoji">🔔</div><h3>카카오톡 대기 알림</h3><p>음식이 준비되면 카카오톡으로 알려 줘요. 기다리는 동안 다른 곳을 구경하세요.</p></div>
+        <div class="card"><div class="emoji">🤝</div><h3>여럿이면 나눠서!</h3><p>한 명은 갓 튀긴 라면 줄, 한 명은 자리 맡기, 한 명은 주문. 역할을 나누면 시간이 확 줄어요.</p></div>
+        <div class="card"><div class="emoji">⏰</div><h3>밥때 피하기</h3><p>낮 12시~1시, 저녁 6시~7시엔 자리가 꽉 차요. 조금 일찍 또는 늦게 먹으면 편하게 앉을 수 있어요.</p></div>
+        <div class="card"><div class="emoji">🍜</div><h3>작게 여러 개</h3><p>한 그릇씩 시켜서 나눠 먹으면 더 많은 라면을 맛볼 수 있어요. 배는 한정되어 있으니까요!</p></div>
+        <div class="card"><div class="emoji">🗺️</div><h3>만날 장소 정하기</h3><p>사람이 많아 휴대폰이 잘 안 터질 수도 있어요. 일행과 헤어지면 만날 곳(예: 구미역 입구)을 미리 정해 두세요.</p></div>
+        <div class="card"><div class="emoji">♻️</div><h3>그릇은 반납!</h3><p>축제에서는 여러 번 쓰는 그릇(다회용기)을 쓰기도 해요. 다 먹은 그릇은 정해진 반납 장소에 돌려주세요.</p></div>
+        <div class="card"><div class="emoji">🚇</div><h3>돌아갈 표 먼저</h3><p>축제 끝날 무렵 기차와 대경선이 무척 붐벼요. 돌아가는 기차표는 미리 예매해 두세요.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 자주 묻는 질문 -->
+  <section id="faq">
+    <div class="wrap">
+      <h2>자주 묻는 질문</h2>
+      <p class="lead">궁금한 질문을 눌러 보세요.</p>
+      <h3 class="faq-group">🎟️ 축제 기본</h3>
+      <details><summary>입장료가 있나요?</summary><p>아니요. 축제장은 누구나 무료로 들어갈 수 있어요. 먹고 싶은 라면이나 사고 싶은 물건만 돈을 내면 돼요.</p></details>
+      <details><summary>다음 축제는 언제 열려요?</summary><p>지금까지 매년 <b>11월 초 금~일요일</b>, 3일 동안 열렸어요. 정확한 날짜는 보통 여름~가을에 발표되니 공식 인스타그램(@gumi_ramyun)을 팔로우해 두세요.</p></details>
+      <details><summary>몇 시에 문을 열어요?</summary><p>2026년 공식 메뉴판 기준으로 <b>금요일 11:00~21:00, 토요일 10:00~21:00, 일요일 10:00~19:00</b>에 운영했어요. 일요일은 일찍 끝나니 주의하세요! 운영 시간은 해마다 공식 홈페이지에서 안내해요.</p></details>
+      <details><summary>비가 오면 어떻게 되나요?</summary><p>날씨에 따라 일부 프로그램이 바뀔 수 있어요. 방문 전 구미시나 축제 공식 SNS에서 소식을 확인해 주세요.</p></details>
+      <details><summary>혼자 가도 재밌을까요?</summary><p>그럼요! 혼자 온 사람도 많아요. 줄 서는 동안 공연을 보고, 혼자 먹기 좋은 한 그릇 메뉴를 골라 보세요.</p></details>
+
+      <h3 class="faq-group">🍜 라면 · 먹거리</h3>
+      <details><summary>갓 튀긴 라면은 마트 라면이랑 맛이 달라요?</summary><p>맛 자체는 크게 다르지 않아요. 대신 공장에서 막 만들어 <b>가장 신선한 상태</b>로 먹을 수 있다는 게 특별해요. 라면 공장 도시에서만 할 수 있는 경험이죠.</p></details>
+      <details><summary>갓 튀긴 라면은 어떻게 사요?</summary><p>축제장 안 농심 판매 코너에서 여러 종류 라면을 묶음(가방)으로 팔아요. 인기가 정말 많아서 2026년에는 2시간 넘게 기다린 사람도 있었어요. 문 여는 시간에 맞춰 가는 게 좋아요.</p></details>
+      <details><summary>라면 한 그릇은 얼마인가요?</summary><p>가게와 메뉴마다 달라요. 2023년에는 한 그릇에 5,000~8,000원 정도였고, 갓 튀긴 라면 묶음은 2025년 기준 2만 원 안팎이었어요. 정확한 가격은 현장 메뉴판을 확인해 주세요.</p></details>
+      <details><summary>매운 걸 못 먹어도 괜찮을까요?</summary><p>괜찮아요! 토마토라면, 크림라면, 짜장라면, 버섯라면처럼 맵지 않은 메뉴도 많아요. 주문할 때 맵기를 물어보세요.</p></details>
+      <details><summary>앉아서 먹을 자리가 있나요?</summary><p>네. 2026년에는 약 2,700개의 자리가 마련됐어요. 그래도 밥 먹는 시간엔 빈자리 찾기가 어려우니, 조금 일찍이나 늦게 드세요.</p></details>
+      <details><summary>결제는 어떻게 해요?</summary><p>2026년 라면 식당은 세 가지 방법으로 주문할 수 있었어요. ① 휴대폰으로 <b>QR 주문</b> ② 현장 <b>키오스크</b>(카드, 구미사랑상품권, 해외 카드 가능) ③ <b>현금이나 지류 상품권</b>은 통합관리소에서 주문. 휴대폰이 익숙하지 않아도 걱정 없어요.</p></details>
+
+      <h3 class="faq-group">👨‍👩‍👧 함께 가는 사람</h3>
+      <details><summary>아이와 함께 가도 될까요?</summary><p>물론이에요. 키즈 페스티벌 같은 어린이 프로그램이 있어요. 다만 사람이 많으니 아이 손을 꼭 잡고, 아이 옷이나 가방에 보호자 연락처를 적어 두세요.</p></details>
+      <details><summary>유모차나 휠체어로 다니기 괜찮나요?</summary><p>축제 기간엔 차가 다니지 않아 길은 넓은 편이지만, 사람이 몰리는 주말 오후엔 지나가기 힘들 수 있어요. 비교적 한산한 금요일이나 오전 방문을 추천해요.</p></details>
+      <details><summary>외국인도 즐길 수 있나요?</summary><p>네. 외국인이 참여하는 라면 요리 대회도 열리고, 해외 국수 요리도 판매해요. 세계 여러 나라 사람들이 함께 즐기는 축제예요.</p></details>
+
+      <h3 class="faq-group">🚆 교통 · 숙소</h3>
+      <details><summary>KTX를 타면 구미역에 내리나요?</summary><p>아니요! KTX는 구미역에 서지 않고 김천에 있는 <b>김천구미역</b>에 서요. 구미역에 바로 내리려면 ITX-새마을이나 무궁화호 같은 일반 열차를 타세요.</p></details>
+      <details><summary>가장 덜 붐비는 때는 언제예요?</summary><p>보통 첫날(금요일) 낮이 가장 여유로워요. 토요일 오후가 가장 붐벼요.</p></details>
+      <details><summary>근처에 잘 곳이 있나요?</summary><p>구미역과 원평동 주변에 숙소가 여럿 있어요. 축제 주말엔 빨리 차니까 날짜가 발표되면 바로 예약하세요.</p></details>
+    </div>
+  </section>
+
+  <!-- 공식 SNS -->
+  <section id="sns">
+    <div class="wrap">
+      <h2>공식 소식 받아보기</h2>
+      <p class="lead">날짜, 메뉴, 셔틀 시간표 같은 최신 소식은 공식 채널에 가장 먼저 올라와요. 팔로우해 두면 놓치지 않아요!</p>
+
+      <h3 class="sns-head">🍜 구미라면축제 공식</h3>
+      <div class="sns-grid">
+        <a class="sns" href="https://www.instagram.com/gumi_ramyun/" target="_blank" rel="noopener">
+          <span class="ic insta">📸</span><span><b>인스타그램</b><small>@gumi_ramyun</small></span>
+        </a>
+        <a class="sns" href="https://www.youtube.com/@gumi_ramyun" target="_blank" rel="noopener">
+          <span class="ic yt">▶</span><span><b>유튜브</b><small>@gumi_ramyun</small></span>
+        </a>
+        <a class="sns" href="https://www.gumiramyun.com/" target="_blank" rel="noopener">
+          <span class="ic web">🌐</span><span><b>축제 홈페이지</b><small>gumiramyun.com</small></span>
+        </a>
+      </div>
+
+      <h3 class="sns-head">🏛️ 구미시 공식</h3>
+      <div class="sns-grid">
+        <a class="sns" href="https://www.instagram.com/gumicityhall/" target="_blank" rel="noopener">
+          <span class="ic insta">📸</span><span><b>인스타그램</b><small>@gumicityhall</small></span>
+        </a>
+        <a class="sns" href="https://www.youtube.com/c/%EA%B5%AC%EB%AF%B8%EC%8B%9C/featured" target="_blank" rel="noopener">
+          <span class="ic yt">▶</span><span><b>유튜브</b><small>구미시 채널</small></span>
+        </a>
+        <a class="sns" href="https://blog.naver.com/gumisns" target="_blank" rel="noopener">
+          <span class="ic blog">N</span><span><b>네이버 블로그</b><small>blog.naver.com/gumisns</small></span>
+        </a>
+        <a class="sns" href="https://www.facebook.com/gumi.korea" target="_blank" rel="noopener">
+          <span class="ic fb">f</span><span><b>페이스북</b><small>gumi.korea</small></span>
+        </a>
+        <a class="sns" href="https://www.gumi.go.kr/" target="_blank" rel="noopener">
+          <span class="ic web">🌐</span><span><b>구미시청 홈페이지</b><small>gumi.go.kr</small></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 마지막 초대 -->
+  <div class="invite">
+    <div class="wrap">
+      <p class="invite-small">다음 라면축제는 매년 11월 초!</p>
+      <p class="invite-big">올가을, 구미에서 <span>후루룩</span> 만나요 🍜</p>
+      <div class="btns">
+        <a class="btn light" href="#way">구미 오는 길 보기</a>
+        <a class="btn ghost" href="#sns">축제 소식 받아보기</a>
+        <button class="btn ghost" id="shareBtn" type="button" hidden>🔗 친구에게 공유하기</button>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p><b>구미라면축제 안내</b> · 이 사이트는 축제를 쉽게 소개하기 위해 만든 비공식 안내 페이지예요. 일정·장소·프로그램은 바뀔 수 있으니, 방문 전 <b>구미시 공식 안내</b>를 꼭 확인해 주세요.</p>
+    <p>🤖 이 페이지는 AI(Claude)의 도움을 받아 만들었어요. 숫자와 사실은 아래 자료와 공식 안내를 보고 확인했지만, 틀린 곳이 있을 수 있어요.</p>
+    <p>참고한 자료 (2025~2026년 언론 보도)</p>
+    <ul>
+      <li><a href="https://kbmaeil.com/article/20261104500168" target="_blank" rel="noopener">경북매일 — 2026 구미라면축제 개최 소식</a></li>
+      <li><a href="https://www.dailian.co.kr/news/view/1667442/" target="_blank" rel="noopener">데일리안 — 2026 구미라면축제 전망</a></li>
+      <li><a href="https://www.vegannews.co.kr/news/article.html?no=349575" target="_blank" rel="noopener">비건뉴스 — 2025 축제 35만 명 방문</a></li>
+      <li><a href="https://www.wikitree.co.kr/articles/1165422" target="_blank" rel="noopener">위키트리 — 라면축제 카카오 T 셔틀 7개 노선</a></li>
+      <li><a href="https://kbmaeil.com/article/202412120413807" target="_blank" rel="noopener">경북매일 — 대경선 소요시간·요금</a></li>
+      <li><a href="https://kbmaeil.com/article/20260915500155" target="_blank" rel="noopener">경북매일 — 구미 가을 여행지</a></li>
+      <li><a href="https://kbmaeil.com/article/202311190377114" target="_blank" rel="noopener">경북매일 — 2023 축제 이색 라면</a></li>
+      <li><a href="https://www.imaeil.com/page/view/2024110315462106142" target="_blank" rel="noopener">매일신문 — 2024 축제 메뉴</a></li>
+      <li><a href="https://www.newsis.com/view/NISX20251107_0003394904" target="_blank" rel="noopener">뉴시스 — 2025 축제 현장</a></li>
+      <li><a href="https://twig24.com/news/lifestyle/trip/2025/11/03/20251103500023" target="_blank" rel="noopener">트윅 — 2025 이색 라면</a></li>
+      <li><a href="https://khan.co.kr/article/202611081200011" target="_blank" rel="noopener">경향신문 — 2026 축제 현장</a></li>
+      <li><a href="https://www.mt.co.kr/article/2026110616091856544" target="_blank" rel="noopener">머니투데이 — 갓 튀긴 라면 축제의 시작</a></li>
+      <li><a href="https://mcst.go.kr/site/s_culture/festival/festivalView.jsp?pSeq=12036" target="_blank" rel="noopener">문화체육관광부 축제 정보</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script>
+  // 화면 밝기(라이트/다크) 전환
+  (function () {
+    const root = document.documentElement;
+    const btn = document.getElementById('themeBtn');
+    let saved = null;
+    try { saved = localStorage.getItem('theme'); } catch (e) {}
+    if (saved) root.setAttribute('data-theme', saved);
+    const isDark = () => root.getAttribute('data-theme')
+      ? root.getAttribute('data-theme') === 'dark'
+      : matchMedia('(prefers-color-scheme: dark)').matches;
+    const paint = () => { btn.textContent = isDark() ? '☀️' : '🌙'; };
+    paint();
+    btn.addEventListener('click', () => {
+      const next = isDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) {}
+      paint();
+    });
+  })();
+
+  // 메뉴·버튼을 누르면 해당 위치로 부드럽게 이동
+  (function () {
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const target = document.getElementById(a.getAttribute('href').slice(1));
+        if (!target) return;
+        e.preventDefault();
+        const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+        target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
+      });
+    });
+
+    // 지금 보고 있는 구역의 메뉴를 강조
+    const links = [...document.querySelectorAll('.menu a')];
+    const map = new Map(links.map(l => [l.getAttribute('href').slice(1), l]));
+    if (!('IntersectionObserver' in window)) return;
+    const spy = new IntersectionObserver((entries) => {
+      entries.forEach(en => {
+        if (!en.isIntersecting) return;
+        links.forEach(l => l.classList.remove('active'));
+        const link = map.get(en.target.id);
+        // 메뉴 줄은 자동으로 움직이지 않음 (휴대폰에서 손가락 아래 버튼이 밀리는 문제 방지)
+        if (link) link.classList.add('active');
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    document.querySelectorAll('section[id]').forEach(s => spy.observe(s));
+  })();
+
+  const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // 화면에 들어오면 한 번 실행하는 도우미
+  function onceVisible(el, fn, threshold) {
+    if (!('IntersectionObserver' in window)) return fn();
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some(e => e.isIntersecting)) { fn(); io.disconnect(); }
+    }, { threshold: threshold || 0.3 });
+    io.observe(el);
+  }
+
+  // 방문객 막대: 화면에 보이면 채우기
+  onceVisible(document.getElementById('bars'), () => {
+    document.querySelectorAll('.bar-fill').forEach(f => f.classList.add('on'));
+  });
+
+  // Count-up: 첫 화면 숫자가 0부터 올라가기 (2초, 끝으로 갈수록 느리게)
+  document.querySelectorAll('.count').forEach(el => {
+    const to = +el.dataset.to;
+    if (reduceMotion) return;
+    el.textContent = '0';
+    onceVisible(el, () => {
+      const start = performance.now();
+      const step = (now) => {
+        const t = Math.min((now - start) / 2000, 1);
+        el.textContent = Math.round(to * (1 - Math.pow(1 - t, 3)));
+        if (t < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    }, 0.5);
+  });
+
+  // Scroll Reveal + Stagger: 카드가 0.06초 간격으로 차례로 나타나기
+  (function () {
+    if (reduceMotion || !('IntersectionObserver' in window)) return;
+    const groups = document.querySelectorAll('.grid, .pride, .courses, .lots, .sns-grid, .plan2');
+    groups.forEach(g => {
+      [...g.children].forEach((c, i) => { c.classList.add('reveal'); c.style.setProperty('--d', (i * 0.06) + 's'); });
+    });
+    document.querySelectorAll('section h2').forEach(h => h.classList.add('reveal'));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+  })();
+
+  // Sticky Header: 스크롤을 시작하면 그림자
+  (function () {
+    const nav = document.querySelector('header.nav');
+    const set = () => nav.classList.toggle('scrolled', scrollY > 8);
+    addEventListener('scroll', set, { passive: true });
+    set();
+  })();
+
+  // Toast: 잠깐 떴다 사라지는 알림
+  function toast(msg) {
+    const t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    clearTimeout(toast.timer);
+    toast.timer = setTimeout(() => t.classList.remove('show'), 3000);
+  }
+
+  // 친구에게 공유하기 (휴대폰은 공유 창, 컴퓨터는 링크 복사)
+  (function () {
+    const btn = document.getElementById('shareBtn');
+    btn.hidden = false;
+    btn.addEventListener('click', async () => {
+      const data = { title: '구미라면축제 안내', text: '라면의 도시 구미에서 열리는 라면축제, 같이 가요! 🍜', url: location.href };
+      try {
+        if (navigator.share) { await navigator.share(data); return; }
+        await navigator.clipboard.writeText(location.href);
+        toast('🔗 링크를 복사했어요! 친구에게 붙여 넣어 보내세요');
+      } catch (e) {
+        if (e && e.name === 'AbortError') return;
+        toast('주소창의 링크를 복사해서 보내 주세요');
+      }
+    });
+  })();
+
+  // 모션그래픽: 처음부터 다시 보기
+  (function () {
+    const btn = document.getElementById('mvReplay');
+    const screen = document.getElementById('screen');
+    if (reduceMotion) return;
+    btn.hidden = false;
+    btn.addEventListener('click', () => {
+      document.getElementById('mv-pause').checked = false;
+      screen.classList.add('restart');
+      void screen.offsetWidth; // 애니메이션을 처음으로 되돌리기
+      screen.classList.remove('restart');
+    });
+  })();
+
+  // 아래에서 올라오는 패널: Esc로 닫기, 패널 속 링크를 누르면 닫기
+  (function () {
+    const toggles = document.querySelectorAll('.sheet-toggle');
+    const closeAll = () => toggles.forEach(t => { t.checked = false; });
+    addEventListener('keydown', (e) => { if (e.key === 'Escape') closeAll(); });
+    document.querySelectorAll('.sheet a').forEach(a => a.addEventListener('click', closeAll));
+  })();
+
+  // Confetti: 준비물을 모두 체크하면 색종이 축하
+  function confetti() {
+    if (reduceMotion) return;
+    const colors = ['#e0321b', '#f2a516', '#5aa83c', '#ffffff', '#ff8a65'];
+    for (let i = 0; i < 60; i++) {
+      const c = document.createElement('span');
+      c.className = 'confetti';
+      c.style.left = Math.random() * 100 + 'vw';
+      c.style.background = colors[i % colors.length];
+      c.style.setProperty('--x', (Math.random() * 160 - 80) + 'px');
+      c.style.setProperty('--r', (Math.random() * 720 - 360) + 'deg');
+      c.style.animationDelay = (Math.random() * 0.4) + 's';
+      document.body.appendChild(c);
+      setTimeout(() => c.remove(), 2400);
+    }
+  }
+
+  // 준비물 체크리스트 (이 기기에 저장)
+  (function () {
+    const boxes = document.querySelectorAll('#checklist input');
+    const progress = document.getElementById('progress');
+    let state = {};
+    try { state = JSON.parse(localStorage.getItem('ramen-check') || '{}'); } catch (e) {}
+    const update = () => {
+      const done = [...boxes].filter(b => b.checked).length;
+      progress.textContent = done === boxes.length
+        ? '🎉 준비 끝! 맛있게 즐기고 오세요'
+        : `${done} / ${boxes.length} 준비 완료`;
+      return done === boxes.length;
+    };
+    boxes.forEach(b => {
+      b.checked = !!state[b.dataset.id];
+      b.addEventListener('change', () => {
+        state[b.dataset.id] = b.checked;
+        try { localStorage.setItem('ramen-check', JSON.stringify(state)); } catch (e) {}
+        if (update() && b.checked) { confetti(); toast('🎉 준비 완료! 구미에서 만나요'); }
+      });
+    });
+    update();
+  })();
+</script>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+</body>
+</html>
